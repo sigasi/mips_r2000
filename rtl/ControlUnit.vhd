@@ -20,16 +20,36 @@ end ControlUnit;
 
 architecture Behavioral of ControlUnit is
 
-	constant lw : std_logic_vector(5 downto 0) := "100011";		--I
-	constant sw : std_logic_vector(5 downto 0) := "101011";		--I
-	constant jr : std_logic_vector(5 downto 0) := "001000";
+	constant lw : std_logic_vector(5 downto 0)   := "100011";		--I
+	constant sw : std_logic_vector(5 downto 0)   := "101011";		--I
+	constant jr : std_logic_vector(5 downto 0)   := "001000";
 	constant jalr : std_logic_vector(5 downto 0) := "001001";
 	constant addu : std_logic_vector(5 downto 0) := "100001";
 	constant subu : std_logic_vector(5 downto 0) := "100011";
 	constant andi : std_logic_vector(5 downto 0) := "001100";	 --I
 	constant slll : std_logic_vector(5 downto 0) := "000000";	
-	constant bne : std_logic_vector(5 downto 0) := "000101";     --I
-	constant slt : std_logic_vector(5 downto 0) := "101010";
+	constant bne : std_logic_vector(5 downto 0)  := "000101";     --I
+	constant slt : std_logic_vector(5 downto 0)  := "101010";
+	----------------------------------------------------------
+	constant LB : std_logic_vector(5 downto 0)     := "100000";	--I
+	constant LBU : std_logic_vector(5 downto 0)    := "100100";	--I
+	constant LH : std_logic_vector(5 downto 0)     := "100001";	--I
+	constant LHU : std_logic_vector(5 downto 0)    := "100101";	--I
+	constant SB : std_logic_vector(5 downto 0)     := "101000";	--I
+	constant SH : std_logic_vector(5 downto 0)     := "101001";	--I
+	constant ADDI : std_logic_vector(5 downto 0)   := "001000";	--I
+	constant ADDIU : std_logic_vector(5 downto 0)  := "001001";	--I
+	constant ORI : std_logic_vector(5 downto 0)    := "001101";	--I
+	constant XORI : std_logic_vector(5 downto 0)   := "001110";	--I
+	constant LUI : std_logic_vector(5 downto 0)    := "001111";	--I
+	-----------------------------------------------------------
+	constant MFHI : std_logic_vector(5 downto 0)    := "010000";	--R
+	constant MFLO : std_logic_vector(5 downto 0)    := "010010";	--R
+	constant MTHI : std_logic_vector(5 downto 0)    := "010001";	--R
+	constant MTLO : std_logic_vector(5 downto 0)    := "010011";	--R
+	constant ADD  : std_logic_vector(5 downto 0)    := "100000";	--R
+	
+	
 	
 	signal RegImm_sig, branch_sig : std_logic;
 	signal aluop1,aluop2 : std_logic_vector (3 downto 0);

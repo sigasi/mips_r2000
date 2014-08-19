@@ -6,7 +6,8 @@ library UNISIM;
 
 entity OR_tree is
 	port(dataIn : in std_logic_vector(31 downto 0);
-			Zero : out std_logic);
+		Zero : out std_logic;
+		Ne   : out std_logic);
 end OR_tree;
 
 architecture Behavioral of OR_tree is
@@ -19,6 +20,7 @@ sig <= dataIn(31) or dataIn(30) or dataIn(29) or dataIn(28) or dataIn(27) or dat
 		 dataIn(7)  or dataIn(6)  or dataIn(5)  or dataIn(4)  or dataIn(3)  or dataIn(2)  or dataIn(1)  or dataIn(0);
 				 
 	Zero <= not sig;
+	Ne <= '1' when dataIn(31 downto 0)< X"0000" else '0';
 
 end Behavioral;
 
