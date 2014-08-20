@@ -57,7 +57,7 @@ begin
 	SLTbus   <= X"0000000" & "000" & subadd_out(32);
 	Ne <= subadd_out(32);
 	ALU_out  <= mux_out;
-	shamt_sig <= "00010" when lui = '1' else shamt ;
+	shamt_sig <= "10000" when lui = '1' else shamt ; --shift 16
 
 	u1 : add_sub
 	port map(	Bus_A  => Bus_A,

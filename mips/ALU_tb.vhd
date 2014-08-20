@@ -106,6 +106,7 @@ BEGIN
 		ALU_op <= "1110";
 		wait for 20 ns;
 		-------------------------------9		LUI
+		lui <= '1';
 		ALU_op <= "0000";
 		wait for 20 ns;
 		-------------------------------10	BGTZ
@@ -118,6 +119,48 @@ BEGIN
 		ALU_op <= "0110";
 		wait for 20 ns;
 		-------------------------------
+		Bus_A <= X"FFFFFFFF";
+		Bus_B <= X"FFFFFFFF";
+		ALU_op <= "1001";	
+		wait for 20 ns;
+		
+		ALU_op <= "1000"; --ADD ADDI LW SW
+		wait for 20 ns;
+		ALU_op <= "1001"; --ADDU ADDIU
+		wait for 20 ns;
+		ALU_op <= "1010"; --SUB BEQ BNE  
+		wait for 20 ns;
+		ALU_op <= "1011"; --SUBU
+		wait for 20 ns;
+		ALU_op <= "1100"; --AND ANDI
+		wait for 20 ns;
+		ALU_op <= "1101"; --OR ORI
+		wait for 20 ns;
+		ALU_op <= "1110"; --XOR XORI
+		wait for 20 ns;
+		ALU_op <= "1111"; --NOR
+		wait for 20 ns;
+		--SHIFT
+		ALU_op <= "0000"; --SLL LUI
+		wait for 20 ns;
+		lui<='1';
+		ALU_op <= "0000"; --SLL LUI
+		wait for 20 ns;
+		ALU_op <= "0010"; --SRA
+		wait for 20 ns;
+		ALU_op <= "0011"; --SLLV
+		SV <= '1';
+		wait for 20 ns;
+		ALU_op <= "0000"; --SLLV
+		wait for 20 ns;
+		ALU_op <= "0010"; --SRLV
+		wait for 20 ns;
+		ALU_op <= "0011"; --SRAV
+		wait for 20 ns;
+		ALU_op <= "0110"; --SLT SLTI
+		wait for 20 ns;
+		ALU_op <= "0111"; --SLTU SLTIU
+		wait for 20 ns;
       wait;
    end process;
 END;
