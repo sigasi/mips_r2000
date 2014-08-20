@@ -42,8 +42,7 @@ end component;
 
 component OR_tree
 	port(	dataIn : in std_logic_vector(31 downto 0);
-			Zero : out std_logic;
-			Ne   : out std_logic);
+			Zero : out std_logic);
 end component;
 
 
@@ -59,7 +58,6 @@ begin
 	Ne <= subadd_out(32);
 	ALU_out  <= mux_out;
 	shamt_sig <= "00010" when lui = '1' else shamt ;
-
 
 	u1 : add_sub
 	port map(	Bus_A  => Bus_A,
@@ -96,8 +94,7 @@ begin
 	
 	u5 : OR_tree
 	port map(dataIn => mux_out ,
-			 Zero   => zero,
-			 Ne 	=> Ne);
+			 Zero   => zero);
 			
 end Behavioral;
 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/christiana/Documents/mips/mips/work/ALU_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="alu_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/alu_tb/bus_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/alu_tb/bus_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/alu_tb/alu_op" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_op[3:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_op[3:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/alu_tb/sv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sv</obj_property>
+      <obj_property name="ObjectShortName">sv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/alu_tb/shamt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">shamt[4:0]</obj_property>
+      <obj_property name="ObjectShortName">shamt[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/alu_tb/lui" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">lui</obj_property>
+      <obj_property name="ObjectShortName">lui</obj_property>
+   </wvobject>
+   <wvobject fp_name="/alu_tb/alu_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/alu_tb/zero" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">zero</obj_property>
+      <obj_property name="ObjectShortName">zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/alu_tb/ne" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ne</obj_property>
+      <obj_property name="ObjectShortName">ne</obj_property>
+   </wvobject>
+   <wvobject fp_name="/alu_tb/overflow" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">overflow</obj_property>
+      <obj_property name="ObjectShortName">overflow</obj_property>
+   </wvobject>
+</wave_config>

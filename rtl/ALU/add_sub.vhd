@@ -24,7 +24,7 @@ bit_33_a <= '0' when (ALU_op(0)= '1') else Bus_A(31);
 bit_33_b <= '0' when (ALU_op(0)= '1') else Bus_B(31);
 
 
-p_addsub : process(alu_op,Bus_A,Bus_B)
+p_addsub : process(alu_op,Bus_A,Bus_B,bit_33_a,bit_33_b)
 	begin	
 	case ALU_op(1) is
 		when '0' => Bus_sig <= (bit_33_a&Bus_A) + (bit_33_b&Bus_B);
