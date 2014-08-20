@@ -17,11 +17,12 @@ ARCHITECTURE behavior OF ALU_tb IS
          ALU_op : IN  std_logic_vector(3 downto 0);
          sv : IN  std_logic;
          lui : IN  std_logic;
-			flag_move : in std_logic;
+			flag_move_to : in std_logic;
          ALU_out : OUT  std_logic_vector(31 downto 0);
          zero : OUT  std_logic;
          Ne : OUT  std_logic;
-         overflow : OUT  std_logic
+         overflow : OUT  std_logic;
+			Bus_hi,Bus_low : out std_logic_vector(31 downto 0)
         );
     END COMPONENT;
     
@@ -33,14 +34,16 @@ ARCHITECTURE behavior OF ALU_tb IS
    signal ALU_op : std_logic_vector(3 downto 0) := (others => '0');
    signal sv : std_logic := '0';
    signal lui : std_logic := '0';
-	signal flag_move : std_logic := '0';
+	signal flag_move_to : std_logic := '0';
 
  	--Outputs
    signal ALU_out : std_logic_vector(31 downto 0);
    signal zero : std_logic;
    signal Ne : std_logic;
    signal overflow : std_logic;
-	
+	signal Bus_hi: std_logic_vector(31 downto 0);
+	signal Bus_low : std_logic_vector(31 downto 0);
+
 --   constant <clock>_period : time := 10 ns;
  
 BEGIN
@@ -51,11 +54,13 @@ BEGIN
           ALU_op => ALU_op,
           sv => sv,
           lui => lui,
-			 flag_move => flag_move,
+			 flag_move_to => flag_move_to,
           ALU_out => ALU_out,
           zero => zero,
           Ne => Ne,
-          overflow => overflow);
+          overflow => overflow,
+			 Bus_hi => Bus_hi,
+			 Bus_low => Bus_low );
 
 --   -- Clock process definitions
 --   <clock>_process :process
@@ -166,7 +171,7 @@ BEGIN
 		wait for 20 ns;
 		ALU_op <= "0111"; --SLTU SLTIU
 		wait for 20 ns;
-		flag_move <= '1';
+		flag_move_to <= '1';
 		wait for 20 ns;
       wait;
    end process;
