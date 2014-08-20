@@ -109,6 +109,7 @@ BEGIN
 		lui <= '1';
 		ALU_op <= "0000";
 		wait for 20 ns;
+		lui <='0';
 		-------------------------------10	BGTZ
 		ALU_op <= "0111";
 		wait for 20 ns;
@@ -146,6 +147,7 @@ BEGIN
 		lui<='1';
 		ALU_op <= "0000"; --SLL LUI
 		wait for 20 ns;
+		lui <='0';
 		ALU_op <= "0010"; --SRA
 		wait for 20 ns;
 		ALU_op <= "0011"; --SLLV
