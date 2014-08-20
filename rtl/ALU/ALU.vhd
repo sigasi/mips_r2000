@@ -10,6 +10,7 @@ entity ALU is
 		 shamt : in std_logic_vector(4 downto 0);	--shamt=16 when lui=1
 		 ALU_op :in std_logic_vector(3 downto 0);
 		 sv,lui : in std_logic;
+		 flag_move : in std_logic;		--for the multiplier for the high and low registers
 		 ALU_out : out std_logic_vector(31 downto 0);
 		 zero,Ne,overflow : out std_logic);
 end ALU;
@@ -45,12 +46,19 @@ component OR_tree
 			Zero : out std_logic);
 end component;
 
+component mul 
+	port( Bus_A,Bus_B : in std_logic_vector(31 downto 0);
+			flag_move : in std_logic;
+			Bus_hi,Bus_low : out std_logic_vector(31 downto 0));
+end component;
+
 
 signal SLTbus : std_logic_vector(31 downto 0);
 signal logicunit_out,shifter_out : std_logic_vector(31 downto 0);
 signal mux_out : std_logic_vector(31 downto 0);
 signal subadd_out : std_logic_vector(32 downto 0);
 signal shamt_sig : std_logic_vector(4 downto 0);
+signal Bus_hi,Bus_low : std_logic_vector(31 downto 0);
 
 begin
 
@@ -95,6 +103,13 @@ begin
 	u5 : OR_tree
 	port map(dataIn => mux_out ,
 			 Zero   => zero);
-			
+	
+	u6 :mul 
+	port map(Bus_A => Bus_A,
+				Bus_B => Bus_B,
+				flag_move => flag_move, 
+				Bus_hi => Bus_hi,
+				Bus_low => Bus_low);
+	
 end Behavioral;
 

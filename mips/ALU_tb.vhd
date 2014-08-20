@@ -17,6 +17,7 @@ ARCHITECTURE behavior OF ALU_tb IS
          ALU_op : IN  std_logic_vector(3 downto 0);
          sv : IN  std_logic;
          lui : IN  std_logic;
+			flag_move : in std_logic;
          ALU_out : OUT  std_logic_vector(31 downto 0);
          zero : OUT  std_logic;
          Ne : OUT  std_logic;
@@ -32,6 +33,7 @@ ARCHITECTURE behavior OF ALU_tb IS
    signal ALU_op : std_logic_vector(3 downto 0) := (others => '0');
    signal sv : std_logic := '0';
    signal lui : std_logic := '0';
+	signal flag_move : std_logic := '0';
 
  	--Outputs
    signal ALU_out : std_logic_vector(31 downto 0);
@@ -49,6 +51,7 @@ BEGIN
           ALU_op => ALU_op,
           sv => sv,
           lui => lui,
+			 flag_move => flag_move,
           ALU_out => ALU_out,
           zero => zero,
           Ne => Ne,
@@ -162,6 +165,8 @@ BEGIN
 		ALU_op <= "0110"; --SLT SLTI
 		wait for 20 ns;
 		ALU_op <= "0111"; --SLTU SLTIU
+		wait for 20 ns;
+		flag_move <= '1';
 		wait for 20 ns;
       wait;
    end process;

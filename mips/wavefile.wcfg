@@ -14,7 +14,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="11" />
    <wvobject fp_name="/alu_tb/bus_a" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
       <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
@@ -42,6 +42,10 @@
    <wvobject fp_name="/alu_tb/lui" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">lui</obj_property>
       <obj_property name="ObjectShortName">lui</obj_property>
+   </wvobject>
+   <wvobject fp_name="/alu_tb/uut/flag_move" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">flag_move</obj_property>
+      <obj_property name="ObjectShortName">flag_move</obj_property>
    </wvobject>
    <wvobject fp_name="/alu_tb/alu_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_out[31:0]</obj_property>
