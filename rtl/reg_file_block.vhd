@@ -5,8 +5,7 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity Regfile_bl is
-port(
-		Clk : in std_logic;
+port(	Clk : in std_logic;
 		Reg_Write : in std_logic;
 		Reg_Imm_not : in std_logic;
 		rs : in std_logic_vector(4 downto 0);
@@ -16,8 +15,7 @@ port(
 		Reg32_flag : in std_logic;
 		Bus_W : in std_logic_vector(31 downto 0);
 		Bus_A : out std_logic_vector(31 downto 0);
-		Bus_B : out std_logic_vector(31 downto 0)
-);
+		Bus_B : out std_logic_vector(31 downto 0));
 end entity Regfile_bl;
 
 architecture Regfile_block of Regfile_bl is
@@ -50,7 +48,7 @@ if (Reg_Imm_Not = '1') then
 end if;
 
 if (Reg32_flag ='1') then
-	Addr_in2 <= "1111";
+	Addr_in2 <= "11111";
 else
 	Addr_in2 <= Addr_in;
 end if;
