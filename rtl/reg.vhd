@@ -2,9 +2,10 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity reg is
+	generic (w : integer);
 	port(clk, rst, en : in std_logic;
-	     di : in std_logic_vector(31 downto 0);
-		  do : out std_logic_vector(31 downto 0));
+	     di : in std_logic_vector(w-1);
+		  do : out std_logic_vector(w-1));
 end reg;
 
 architecture Behavioral of reg is

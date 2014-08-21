@@ -13,6 +13,7 @@ end Datapath;
 architecture Behavioral of Datapath is
 
 component reg 
+	generic (w : integer);
 	port(clk, rst, en : in std_logic;
 	     di : in std_logic_vector(31 downto 0);
 		  do : out std_logic_vector(31 downto 0));
@@ -83,13 +84,13 @@ begin
 
 
 ----------------------------REGISTERS------------------------------
-regHi_unit : reg port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_hi,do=>regHi);
-regLow_unit : reg port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_low,do=>regLow);
+regHi_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_hi,do=>regHi);
+regLow_unit : reg generic map(w=>32)port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_low,do=>regLow);
 --regAlu_out : reg port map(clk=>clk,rst=>rst,en=>'1',di=>,do=>);
 
-regA_unit : reg port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_A,do=>regA);
-regB_unit : reg port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_B,do=>regB);
-regI_unit : reg port map(clk=>clk,rst=>rst,en=>'1',di=>EXT_out,do=>regI);	
+regA_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_A,do=>regA);
+regB_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_B,do=>regB);
+regI_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>EXT_out,do=>regI);	
 
 	u_reg : process (clk)
 		begin
