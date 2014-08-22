@@ -25,16 +25,17 @@ architecture Behavioral of DMcontrol is
 	constant SH  : std_logic_vector(5 downto 0)   := "101001";
 	constant SW  : std_logic_vector(5 downto 0)   := "101011";
 
-signal DM_error : std_logic;
+signal WE_sig : std_logic_vector(3 downto 0);
 begin
-
-	u : process(opcode,ALUout,DatafromDM)
+	Bus_DMA <= ALUout(12 downto 2);
+	WE <= WE_sig and (Dmem_write & Dmem_write & Dmem_write & Dmem_write);
+	u : process(opcode,ALUout,DatafromDM,MDRin)
 	begin
-		Bus_DMA <= ALUout(12 downto 2);
 		case opcode is
 			when LB =>
 				E <='0';
-				WE <="0000";
+				WE_sig <="0000";
+				DatatoDM <= (others=>'0');
 				if DatafromDM(7) = '0' then --code for sign extension
 						MDRout(31 downto 8) <= (others=>'0');
 				else
@@ -50,12 +51,9 @@ begin
 ---------------------------------------------------------------------------------					
 			when LBU => 
 				E <='0';
-				WE <="0000";
-				if DatafromDM(7) = '0' then
-						MDRout(31 downto 8) <= (others=>'0');
-				else
-						MDRout(31 downto 8) <= (others=>'1');
-				end if;
+				WE_sig <="0000";
+				DatatoDM <= (others=>'0');
+				MDRout(31 downto 8) <= (others=>'0');
 				case ALUout(1 downto 0) is
 					when "00" => MDRout(7 downto 0)   <= DatafromDM(7 downto 0);
 					when "01" => MDRout(7 downto 0)   <= DatafromDM(15 downto 8);
@@ -65,9 +63,10 @@ begin
 				end case;
 ---------------------------------------------------------------------------------			
 			when LH  => 
-				E <= DM_error;
-				WE <="0000";
-				if DatafromDM(7) = '0' then --sign extension
+				E <= ALUout(0);
+				WE_sig <="0000";
+				DatatoDM <= (others=>'0');
+				if DatafromDM(15) = '0' then --sign extension
 						MDRout(31 downto 16) <= (others=>'0');
 				else
 						MDRout(31 downto 16) <= (others=>'1');
@@ -75,59 +74,72 @@ begin
 				case ALUout(1 downto 0) is
 					when "00" => MDRout(15 downto 0) <= DatafromDM(15 downto 0);
 					when "10" => MDRout(15 downto 0) <= DatafromDM(31 downto 16);
-					when others => DM_error<='1';MDRout<=(others=>'0');
+					when others => MDRout <= (others=>'0');
 				end case;
 ---------------------------------------------------------------------------------
 			when LHU => 
-				E <= DM_error;
-				WE <="0000";
+				E <= ALUout(0);
+				WE_sig <="0000";
+				DatatoDM <= (others=>'0');
 				MDRout(31 downto 16) <= (others=>'0');--zero extension
 				case ALUout(1 downto 0) is
 					when "00" => MDRout(15 downto 0) <= DatafromDM(15 downto 0);
 					when "10" => MDRout(31 downto 16) <= DatafromDM(31 downto 16);
-					when others => DM_error<='1';MDRout<=(others=>'0');
+					when others => MDRout<=(others=>'0');
 				end case;
 ---------------------------------------------------------------------------------
 			when LW  => 
-				E <= DM_error;
-				WE <="0000";
-				if ALUout(1 downto 0) = "00" then ---horrible latch
+				E <= ALUout(0) or ALUout(1);
+				WE_sig <="0000";
+				DatatoDM <= (others=>'0');
+				if ALUout(1 downto 0) = "00" then 
 					MDRout <= DatafromDM;
 				else 
-					DM_error<='1';
+					MDRout <= (others=>'0');
 				end if;
 ---------------------------------------------------------------------------------
 			when SB  => 
 				E <='0';
-				WE <= "0000";--0010 0100 1000
+				DatatoDM <= (others=>'0');
 				case ALUout(1 downto 0) is
 					when "00" => DatatoDM(7 downto 0)   <= MDRin(7 downto 0);
+									 WE_sig <= "0001"; MDRout <= (others=>'0');
 					when "01" => DatatoDM(15 downto 8)  <= MDRin(7 downto 0);
+									 WE_sig <= "0010"; MDRout <= (others=>'0');
 					when "10" => DatatoDM(23 downto 16) <= MDRin(7 downto 0);
+									 WE_sig <= "0100"; MDRout <= (others=>'0');
 					when "11" => DatatoDM(31 downto 24) <= MDRin(7 downto 0);
-					when others => DatatoDM<=(others=>'0');
+									 WE_sig <= "1000"; MDRout <= (others=>'0');
+					when others => DatatoDM<=(others=>'0'); WE_sig <= "0000";
+										MDRout <= (others=>'0');
 				end case;
 ---------------------------------------------------------------------------------
 			when SH  => 
-				E <= DM_error;
-				WE <= "0000";--0010
+				E <= ALUout(0);
+				WE_sig <= "0000";--0010
+				DatatoDM <= (others=>'0');
 				case ALUout(1 downto 0) is
-					when "00" => DatatoDM(15 downto 0)  <= DatafromDM(15 downto 0);
-					when "10" => DatatoDM(31 downto 16) <= DatafromDM(31 downto 16);
-					when others => DM_error<='1'; DatatoDM<=(others=>'0');
+					when "00" => DatatoDM(15 downto 0)  <= MDRin(15 downto 0);
+							WE_sig <= "0011"; MDRout <= (others=>'0');
+					when "10" => DatatoDM(31 downto 16) <= MDRin(31 downto 16);
+							WE_sig <= "1100"; MDRout <= (others=>'0');
+					when others =>  DatatoDM<=(others=>'0');WE_sig <= "0000";
+							MDRout <= (others=>'0');
 				end case;
 ---------------------------------------------------------------------------------
 			when SW  => 
-				E <= DM_error;
-				WE <= "1111";
-				if ALUout(1 downto 0) = "00" then ---horrible latch
-					MDRout <= DatafromDM;
+				E <= ALUout(1) or ALUout(0);
+				WE_sig <= "1111";
+				DatatoDM <= (others=>'0');
+				MDRout <= (others=>'0');
+				if ALUout(1 downto 0) = "00" then 
+					DatatoDM <= MDRin;
 				else 
-					DM_error<='1';
+					DatatoDM <= (others=>'0');
 				end if;
 ---------------------------------------------------------------------------------
 			when others => MDRout<=(others=>'0');
-								DM_error<='0'; 
+								WE_sig <= "0000";E <= '0';
 								DatatoDM<=(others=>'0');
 ---------------------------------------------------------------------------------
 		end case;--case opcode
