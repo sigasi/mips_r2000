@@ -84,7 +84,7 @@ begin
 				MDRout(31 downto 16) <= (others=>'0');--zero extension
 				case ALUout(1 downto 0) is
 					when "00" => MDRout(15 downto 0) <= DatafromDM(15 downto 0);
-					when "10" => MDRout(31 downto 16) <= DatafromDM(31 downto 16);
+					when "10" => MDRout(15 downto 0) <= DatafromDM(31 downto 16);
 					when others => MDRout<=(others=>'0');
 				end case;
 ---------------------------------------------------------------------------------
@@ -100,38 +100,40 @@ begin
 ---------------------------------------------------------------------------------
 			when SB  => 
 				E <='0';
+				MDRout <= (others=>'0');
 				DatatoDM <= (others=>'0');
 				case ALUout(1 downto 0) is
 					when "00" => DatatoDM(7 downto 0)   <= MDRin(7 downto 0);
-									 WE_sig <= "0001"; MDRout <= (others=>'0');
+									 WE_sig <= "0001"; 
 					when "01" => DatatoDM(15 downto 8)  <= MDRin(7 downto 0);
-									 WE_sig <= "0010"; MDRout <= (others=>'0');
+									 WE_sig <= "0010"; 
 					when "10" => DatatoDM(23 downto 16) <= MDRin(7 downto 0);
-									 WE_sig <= "0100"; MDRout <= (others=>'0');
+									 WE_sig <= "0100"; 
 					when "11" => DatatoDM(31 downto 24) <= MDRin(7 downto 0);
-									 WE_sig <= "1000"; MDRout <= (others=>'0');
+									 WE_sig <= "1000"; 
 					when others => DatatoDM<=(others=>'0'); WE_sig <= "0000";
-										MDRout <= (others=>'0');
 				end case;
 ---------------------------------------------------------------------------------
 			when SH  => 
 				E <= ALUout(0);
+				MDRout <= (others=>'0');
+				
 				WE_sig <= "0000";--0010
 				DatatoDM <= (others=>'0');
 				case ALUout(1 downto 0) is
 					when "00" => DatatoDM(15 downto 0)  <= MDRin(15 downto 0);
-							WE_sig <= "0011"; MDRout <= (others=>'0');
+							WE_sig <= "0011"; 
 					when "10" => DatatoDM(31 downto 16) <= MDRin(31 downto 16);
-							WE_sig <= "1100"; MDRout <= (others=>'0');
+							WE_sig <= "1100";
 					when others =>  DatatoDM<=(others=>'0');WE_sig <= "0000";
-							MDRout <= (others=>'0');
 				end case;
 ---------------------------------------------------------------------------------
 			when SW  => 
 				E <= ALUout(1) or ALUout(0);
+				MDRout <= (others=>'0');
 				WE_sig <= "1111";
 				DatatoDM <= (others=>'0');
-				MDRout <= (others=>'0');
+				
 				if ALUout(1 downto 0) = "00" then 
 					DatatoDM <= MDRin;
 				else 
