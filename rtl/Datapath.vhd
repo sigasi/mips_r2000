@@ -4,10 +4,13 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity Datapath is
 	port( clk,rst : in std_logic;
-			Bus_A,Bus_B : in std_logic_vector(31 downto 0);
-			Bus_W : out std_logic_vector(31 downto 0);
-			reg_IR : out std_logic_vector(31 downto 0)
-			);
+			Bus_A_test,Bus_B_test : out std_logic_vector(31 downto 0);
+			PC_write,sel_ext,Reg_Write,Reg_Imm,Dmem_write : in std_logic;
+			ALU_op : in std_logic_vector(3 downto 0);
+			sel_HiLow : in std_logic_vector(1 downto 0);
+			sv,lui,jump,Branch,ne_eq,j_jal_flag : in std_logic;
+			Branchzero_flag,Reg32_flag,en_Hi,en_Low,Link,DM_ALU : in std_logic;
+			Bus_W_test,Bus_IMD_out : out std_logic_vector(31 downto 0));
 end Datapath;
 
 architecture Behavioral of Datapath is
@@ -15,8 +18,8 @@ architecture Behavioral of Datapath is
 component reg 
 	generic (w : integer);
 	port(clk, rst, en : in std_logic;
-	     di : in std_logic_vector(31 downto 0);
-		  do : out std_logic_vector(31 downto 0));
+	     di : in std_logic_vector(w-1 downto 0);
+		  do : out std_logic_vector(w-1 downto 0));
 end component;
 
 component ALU 
@@ -93,10 +96,8 @@ component SL2_add
 end component;
 
 component NPCmux
-	port(Bus_A :in std_logic_vector(31 downto 0);
-			regM : in std_logic_vector(31 downto 0);
-			regNPC : in std_logic_vector(31 downto 0);
-			zero,jump,Branch,ne_eq: in std_logic;
+	port( regN, regD,regA,regM : in std_logic_vector(31 downto 0);
+			zero,jump,Branch,ne_eq,j_jal_flag: in std_logic;
 			npcmux_out :out std_logic_vector(31 downto 0));
 end component;
 
@@ -105,142 +106,149 @@ component ALUmux_outunit
 			RegImm : in std_logic;
 			ALUmux_out: out std_logic_vector(31 downto 0));			
 end component;
+
+component RFmux 
+	port( regN,regHi,regLow : in std_logic_vector(31 downto 0);
+			regS,MDRout : in std_logic_vector(31 downto 0);
+			Link,DM_ALU : in std_logic;
+			sel_HiLow : in std_logic_vector(1 downto 0);
+			RFmux_out : out std_logic_vector(31 downto 0));
+end component;
 --===========================================================================
-signal ALU_op,WE,opcode : std_logic_vector(3 downto 0);
-signal pc,regN : std_logic_vector(31 downto 0);
-signal sv,lui,flag_move_to,Branchzero_flag,sel_ext : std_logic;
-signal zero,Ne,overflow,E,PC_write,Dmem_write,RegImm : std_logic;
-signal Reg32_flag,Reg_Imm_not,jump,Branch : std_logic;
-signal EXT_out,ALU_out,Bus_IMA : std_logic_vector(31 downto 0);
-signal Bus_DMA,DatatoDM,DatafromDM,MDRout,regD : std_logic_vector(31 downto 0);
-signal regI,regA,regB,regHi,regLow,regZero,regNe,regN,regP : std_logic_vector(31 downto 0);
-signal Reg_Imm,Reg_Write,MDRin,inc_out,SL2_out,regM : std_logic_vector(31 downto 0);
-signal Bus_hi,Bus_low,Bus_IMD,data_out,PSD_out : std_logic_vector(31 downto 0);
+signal WE,opcode,regP : std_logic_vector(3 downto 0);
+signal pc,regN,regALU_out : std_logic_vector(31 downto 0);
+signal zero,Ne,overflow,E : std_logic;
+signal EXT_out,ALU_out,Bus_IMA,npcmux_out : std_logic_vector(31 downto 0);
+signal DatatoDM,DatafromDM,MDRout,regD : std_logic_vector(31 downto 0);
+signal regI,regA,regB,regHi,regLow,regZero,regNe : std_logic_vector(31 downto 0);
+signal MDRin,inc_out,SL2_out,regM : std_logic_vector(31 downto 0);
+signal Bus_hi,Bus_low,Bus_IMD,data_out,PSD : std_logic_vector(31 downto 0);
+signal Bus_A,Bus_B,Bus_W,ALUmux_out : std_logic_vector(31 downto 0);
+signal status_reg_in,status_reg_out : std_logic_vector(3 downto 0);
+signal Bus_DMA : std_logic_vector(10 downto 0);
 begin
 
+Bus_A_test <= Bus_A;
+Bus_B_test <= Bus_B;
+Bus_W_test <= Bus_W;
+status_reg_in <= zero & Ne & overflow & E;
+statusreg : reg generic map(w=>4) port map(clk=>clk,rst=>rst,en=>'1',di=>status_reg_in,do=>status_reg_out);
+Bus_IMD_out <= Bus_IMD;
 --========================INSTRUCTION FETCH==================================
 regPC_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>PC_write,di=>npcmux_out,do=>Bus_IMA);
---PC_write COMES FROM CU
 regN_unit  : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>INC_out,do=>regN);
-regP_unit  : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_IMA,do=>regP);
---regIR_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_IMD,do=>reg_IR);
+regP_unit  : reg generic map(w=>4) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_IMA(31 downto 28),do=>regP);
 	
-	u4_Imem : imem 
+	U0_Imem : imem 
 	port map(clk => clk,
-				en => en,					
-				address => Bus_IMA,
+				en => '1',					
+				address => Bus_IMA(10 downto 0),
 				data_out => Bus_IMD);
 				
-	u6_inc : INC
-	port map( pc => pc,
+	U1_inc : INC
+	port map( pc => Bus_IMA,
 				INC_out => INC_out);
 				
 --========================INSTRUCTION DECODE==================================
 regA_unit  : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_A,do=>regA);
 regB_unit  : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_B,do=>regB);
 regI_unit  : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>EXT_out,do=>regI);	
-regD_unit  : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>PSD_out,do=>regD); --PSD_out?
+regD_unit  : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>PSD,do=>regD); 
 
-	U1_ext : Extension
-		port map(datain => reg_IR(15 downto 0),		--IROUT
+	PSD <= regP & Bus_IMD(25 downto 0) & "00";		--PWD unit
+	U2_ext : Extension
+		port map(datain => Bus_IMD(15 downto 0),		
 					sel_ext => sel_ext,						--from CU
 					dataout => EXT_out);
 
-	U2_RF : Regfile_bl 
+	U3_RF : Regfile_bl 
 	port map(Clk => clk,
-				Reg_Write => Reg_Write, --come from CU
+				Reg_Write => Reg_Write,					 --come from CU
 				Reg_Imm_not => Reg_Imm,
-				rs => reg_IR(25 downto 21),
-				rt => reg_IR(20 downto 16),
-				rd => reg_IR(15 downto 11),
+				rs => Bus_IMD(25 downto 21),
+				rt => Bus_IMD(20 downto 16),
+				rd => Bus_IMD(15 downto 11),
 				Branchzero_flag => Branchzero_flag, --from CU
 				Reg32_flag => Reg32_flag,
 				Bus_W => Bus_W,
 				Bus_A => Bus_A,
 				Bus_B => Bus_B);
-		--LEPEI H MONADA PSD
 
 --========================INSTRUCTION EXECUTION==================================
 regM_unit  : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>SL2_out,do=>regM);	
-zero_unit  : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>zero,do=>regZero);	
-Ne_unit    : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>Ne,do=>regNe);	
-regHi_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_hi,do=>regHi);
-regLow_unit : reg generic map(w=>32)port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_low,do=>regLow);
---regAlu_out : reg port map(clk=>clk,rst=>rst,en=>'1',di=>,do=>);
+--zero_unit  : reg generic map(w=>1) port map(clk=>clk,rst=>rst,en=>'1',di=>zero,do=>regZero);	
+--Ne_unit    : reg generic map(w=>1) port map(clk=>clk,rst=>rst,en=>'1',di=>Ne,do=>regNe);	
+regHi_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>en_Hi,di=>Bus_hi,do=>regHi);
+regLow_unit : reg generic map(w=>32)port map(clk=>clk,rst=>rst,en=>en_Low,di=>Bus_low,do=>regLow);
+regAlu_out_u : reg generic map(w=>32)port map(clk=>clk,rst=>rst,en=>'1',di=>ALU_out,do=>regALU_out);
 
-ALU_out <= regB when Reg_Imm_not = '1' else regI;	----check reg_im_not
-
-	U3 : ALUmux_outunit
+	U4 : ALUmux_outunit
 	port map(regB=> regB,		
 				regI=>regI,
-				RegImm=>RegImm,				---???
+				RegImm=>Reg_Imm,				---???
 				ALUmux_out=>ALUmux_out);
 
-
-	U4_ALU : ALU 
+	U5_ALU : ALU 
 	port map(Bus_A => Bus_A,
-				Bus_B => ALU_out,
-				shamt => reg_IR(10 downto 6),
+				Bus_B => ALUmux_out,
+				shamt => Bus_IMD(10 downto 6),
 				ALU_op => ALU_op,							--FROM CU
 				sv => sv,lui => lui,						--from CU
-				flag_move_to => flag_move_to,			--from Cu
+				flag_move_to => sel_HiLow(1),			--from Cu
 				ALU_out => ALU_out,
 				zero =>zero,Ne => Ne,
-				overflow => overflow ,					--
+				overflow => overflow,					--
 				Bus_hi => Bus_hi,
 				Bus_low=> Bus_low );
 	
-	U5_SL2 : SL2_add
+	U6_SL2 : SL2_add
 	port map( NPC_in => regN,					--FROM NPC?
 				regI_in => regI,
 				SL2_out => SL2_out);
 				
 
 --========================MEMORY WRITE==================================
-MDRin_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_B,do=>MDRin);
+MDRin_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>regB,do=>MDRin);
 	
 	U6_DMcontr : DMcontrol 
-	port map( ALUout => ALU_out,
+	port map( ALUout => regALU_out(12 downto 0),
 				MDRin => MDRin,
 				DatatoDM => DatatoDM,
 				WE => WE, 						-- COMES FROM CU(3 downto 0);
 				Bus_DMA => Bus_DMA,
 				DatafromDM => DatafromDM, 	--comes from the SRAM!!!!!
-				MDRout => MDRout,				 --its not a register
+				MDRout => MDRout,				
 				E => E,
 				Dmem_write => Dmem_write,
-				opcode => ALU_op);			--???
+				opcode => Bus_IMD(31 downto 26));			
 	
 	U7_dmem : dmem 
 	port map(clk => clk,
 				we => WE,
-				en => en,
---				ssr =>
---				address =>
-				data_in => Bus_DMA,
-				data_out => data_out);
+				en => "1111",
+				ssr => "0000",
+				address => Bus_DMA,
+				data_in => DatatoDM,
+				data_out => DatafromDM);
 				
---========================MEMORY WRITE==================================
+--========================WRITE OTI THELW==================================
 				
-	u6 : NPCmux
-	port map(Bus_A => regA,
-			regM  =>regM,
-			regNPC => npc_reg,
-			zero => zero,
-			jump => jump,
-			Branch =>Branch,
-			ne_eq => '1',				--notequal comes from CU for branch 
-			npcmux_out => npcmux_out );
-			
-	u_reg : process (clk)
-		begin
-		if(rising_edge(clk))then
-			regA <= Bus_A;
-			regB <= Bus_B;
-			regI <= EXT_out;
-		end if;
-	end process;
-
-
+	U8 : NPCmux
+	port map(regN=>regN,
+				regD=>regD,regA=>regA,
+				regM=>regM,zero=>status_reg_out(3),
+				jump=>jump,Branch=>Branch,
+				ne_eq=>ne_eq,j_jal_flag=>j_jal_flag,
+				npcmux_out =>npcmux_out);
+	U9 : RFmux 
+	port map(regN=>regN,
+				regHi=>regHi,
+				regLow=>regLow,
+				regS=>regALU_out,
+				MDRout=>MDRout,
+				Link =>Link,
+				DM_ALU =>DM_ALU,
+				sel_HiLow =>sel_HiLow,
+				RFmux_out=>Bus_W);
 end Behavioral;
 

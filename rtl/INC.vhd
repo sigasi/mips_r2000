@@ -12,7 +12,7 @@ end INC;
 architecture Behavioral of INC is
 
 begin
-	inc_out <= std_logic_vector(unsigned(pc) + X"00000100");
+	inc_out <= std_logic_vector(unsigned(pc) + X"00000004");
 	
 end Behavioral;
 

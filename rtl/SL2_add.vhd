@@ -11,12 +11,10 @@ entity SL2_add is
 end SL2_add;
 
 architecture Behavioral of SL2_add is
---signal sig : std_logic_vector(31 downto 0);
+signal sig : std_logic_vector(31 downto 0);
 
 begin
-	--sig <= regI_in(29 downto 0) &"00";
-	--SL2_out <= sig + NPC_in;
+	sig <= regI_in(29 downto 0) &"00";
+	SL2_out <= sig + NPC_in;
 	
-	SL2_out <= regI_in + NPC_in;
-
 end Behavioral;
