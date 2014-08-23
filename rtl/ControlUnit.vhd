@@ -13,6 +13,34 @@ entity ControlUnit is
 		  Branchzero_flag,Reg32_flag,en_Hi,en_Low : out std_logic);
 end ControlUnit;
 
+
+--rs => Bus_IMD(25 downto 21),
+--				rt => instruction(20 downto 16)
+--				rd => Bus_IMD(15 downto 11),
+--
+
+
+
+--		  RegImm
+--		  DM_ALU
+--		  sel_ext
+--		  sel_HiLow
+--		  sv,
+--		  lui,
+--		  ne_eq,
+--		  j_jal_flag
+--		  Branchzero_flag,
+--		  Reg32_flag,
+
+
+--FSM
+--		  Reg_write
+--		  Dmem_write,
+--		  PC_write
+--		  en_Hi
+--		  en_Low 
+
+
 architecture Behavioral of ControlUnit is
 
 	constant lw : std_logic_vector(5 downto 0)   := "100011";		--I
@@ -43,7 +71,28 @@ architecture Behavioral of ControlUnit is
 	constant MTHI : std_logic_vector(5 downto 0)    := "010001";	--R
 	constant MTLO : std_logic_vector(5 downto 0)    := "010011";	--R
 	constant ADD  : std_logic_vector(5 downto 0)    := "100000";	--R
-	
+	CONSTANT sub : std_logic_vector(5 downto 0)   := "100010";
+	CONSTANT mult : std_logic_vector(5 downto 0)  := "011000";
+	CONSTANT and_op : std_logic_vector(5 downto 0):= "100100";
+	CONSTANT or_op : std_logic_vector(5 downto 0) := "100101";
+	-----------------------------------------------
+	CONSTANT xor_op : std_logic_vector(5 downto 0):= "100110";
+	CONSTANT nor_op : std_logic_vector(5 downto 0):= "100111";
+	CONSTANT srlv : std_logic_vector(5 downto 0)  := "000110";
+	CONSTANT srav : std_logic_vector(5 downto 0)  := "000111";
+	CONSTANT sllv : std_logic_vector(5 downto 0)  := "000100";
+	CONSTANT srlv : std_logic_vector(5 downto 0)  := "000110";
+	CONSTANT srav : std_logic_vector(5 downto 0)  := "000111";
+	CONSTANT slti : std_logic_vector(5 downto 0)  := "001010";
+	CONSTANT sltiu : std_logic_vector(5 downto 0) := "001011";
+	CONSTANT sltu : std_logic_vector(5 downto 0)  := "101011";
+	--------------------------------
+	CONSTANT beq : std_logic_vector(5 downto 0)   := "000100";
+	CONSTANT blez : std_logic_vector(5 downto 0)  := "000110";
+	CONSTANT bgtz : std_logic_vector(5 downto 0)  := "000111";
+	CONSTANT bxxx : std_logic_vector(5 downto 0)  := "000001";
+	CONSTANT j : std_logic_vector(5 downto 0)     := "000010";
+	CONSTANT jal : std_logic_vector(5 downto 0)   := "000011";
 	
 	
 	signal RegImm_sig, branch_sig : std_logic;
@@ -56,38 +105,69 @@ begin
 	RegImm_sig <= '1' when instruction(31 downto 26) = "000000" else '0';
 	RegImm<= RegImm_sig or branch_sig;
 	
-	jump <= '1' when((instruction(5 downto 0) = jr or instruction(5 downto 0) = jalr) and RegImm_sig = '1') else '0';
-	branch_sig <= '1' when(instruction(31 downto 26) = bne and RegImm_sig = '0') else '0';
+	jump <= '1' when(((instruction(5 downto 0) = jr or
+							instruction(5 downto 0) = jalr) and RegImm_sig = '1') or 
+							instruction(5 downto 0) = jal or
+							instruction(5 downto 0) = j ) else '0';
+							
+--------------------------------------------------------------------------------------------------
+							
+	branch_sig <= '1' when(instruction(31 downto 26) = bne  or
+								  instruction(31 downto 26) = beq  or
+								  instruction(31 downto 26) = blez or
+								  instruction(31 downto 26) = bgtz or
+								  instruction(31 downto 26) = bxxx )and RegImm_sig = '0' else '0';
 	branch <= branch_sig;
+--------------------------------------------------------------------------------------------------	
+	link <= '1' when(instruction(5 downto 0) = jalr or 
+						  instruction(5 downto 0) = jal or
+						  (instruction(5 downto 0) = bxxx and (instruction(20 downto 16)="00010" or instruction(20 downto 16) = "00011" ))) else '0';
+							--bgezal bltzal		
+--------------------------------------------------------------------------------------------------	
 	
-	link <= '1' when(instruction(5 downto 0) = jalr and RegImm_sig = '1') else '0';
 	DM_ALU <= '1' when(instruction(31 downto 26) = lw and RegImm_sig = '0') else '0';
-	
+		
+--------------------------------------------------------------------------------------------------	
 	sel_ext <= '0' when(instruction(31 downto 26) = andi) else '1';
 	
-	
-	u : process(instruction)
-	begin
-	case instruction(5 downto 0) is --FOR R 
-		when jr   => aluop1<="0001";			
-		when jalr => aluop1<= "0001";			
-		when addu => aluop1<= "1001";
-		when subu => aluop1<= "1011";
-		when slt  => aluop1<= "0110";
-		when slll => aluop1<= "0000";
-		when others => aluop1<= X"0";
-	end case;
-	
-	case instruction(31 downto 26) is --FOR I
-		when lw=> aluop2  <="1000";	
-		when sw=> aluop2  <="1000";
-		when andi=> aluop2<="1100";
-		when bne=> aluop2 <="1010";
-		when others => aluop2<= X"0";
-	end case;
-	end process;
-	
-	ALU_op <= aluop1 when RegImm_sig='1' else aluop2;
+	-- I-type Control Signals ------------------------
+	 aluop2 <= "1000" when(instruction(31 downto 26) = addi) else
+			       "1001" when(instruction(31 downto 26) = addiu) else
+			       "1100" when(instruction(31 downto 26) = andi) else
+			       "1101" when(instruction(31 downto 26) = ori) else
+			       "1110" when(instruction(31 downto 26) = xori) else
+			       "0000" when(instruction(31 downto 26) = lui) else
+			       "1000" when(instruction(31 downto 26) = lb or instruction(31 downto 26) = lh or instruction(31 downto 26) = lw or instruction(31 downto 26) = lbu or instruction(31 downto 26) = lhu) else
+			       "1000" when(instruction(31 downto 26) = sb or instruction(31 downto 26) = sh or instruction(31 downto 26) = sw) else
+			       "1010" when(instruction(31 downto 26) = beq) else
+			       "1010" when(instruction(31 downto 26) = bne) else
+			       "0110" when(instruction(31 downto 26) = slti) else
+			       "0111" when(instruction(31 downto 26) = sltiu) else
+			       "1010" when(instruction(31 downto 26) = blez) else
+			       "1010" when(instruction(31 downto 26) = bgtz) else
+			       "1010" when(instruction(31 downto 26) = bxxx and (instruction(20 downto 16) = "00000" or instruction(20 downto 16) = "00001" or instruction(20 downto 16) = "10000" or instruction(20 downto 16) = "10001")) else
+			       "0000";
+
+-- R-type Control Signals ------------------------							 
+	 aluop1 <= "1000" when(instruction(5 downto 0) = add) else
+	 			    "1001" when(instruction(5 downto 0) = addu) else
+	 			    "1010" when(instruction(5 downto 0) = sub) else
+	 			    "1011" when(instruction(5 downto 0) = subu) else
+	 			    "1100" when(instruction(5 downto 0) = and_op) else
+	 			    "1101" when(instruction(5 downto 0) = or_op) else
+	 			    "1110" when(instruction(5 downto 0) = xor_op) else
+	 			    "1111" when(instruction(5 downto 0) = nor_op) else
+	 			    "0000" when(instruction(5 downto 0) = slll) else
+	 			    "0010" when(instruction(5 downto 0) = sllv) else-----------
+	 			    "0011" when(instruction(5 downto 0) = shra) else-------------
+	 			    "0000" when(instruction(5 downto 0) = sllv) else
+	 			    "0010" when(instruction(5 downto 0) = srlv) else
+	 			    "0011" when(instruction(5 downto 0) = srav) else
+	 			    "0110" when(instruction(5 downto 0) = slt) else
+	 			    "0111" when(instruction(5 downto 0) = sltu) else
+	 			    "0000";
+
+	ALU_op <= aluop1 when RegImm_sig='1' else aluop2; 
 	
 	
 	fsm : process(rst,clk)
