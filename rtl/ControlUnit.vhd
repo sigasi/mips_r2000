@@ -122,24 +122,21 @@ begin
 --------------------------------------------------------------------------------------------------
 	lui_sig <=  '1' when( opcode = LUI) else '0';
 --------------------------------------------------------------------------------------------------
---	sel_HiLow(1) <= '1' when(	RegImm_sig = '1' and (func = MTHI or func = MTLO)	) else '0';
+	sel_HiLow <= "10" when (func = MTHI or func = MFHI)
+			  else "11" when  (func= MFLO or func = MTLO)
+			  else "00";
 --------------------------------------------------------------------------------------------------
-	Branchzero_flag <= '0' when( opcode = ANDI or opcode = ORI or opcode = XORI) else '1'; --???
+	Branchzero_flag <= '0' when( opcode = BLEZ or opcode = BGTZ or
+										  (opcode = Bxxx and (rt = "00000" or rt = "00001" or rt = "10000" or rt = "10001"))  )  else '0';
 --------------------------------------------------------------------------------------------------	
 	Reg32_flag <= '1' when(	opcode = JAL or (opcode = Bxxx and (rt = "10000" or rt = "10001"))		) else '0';
 --------------------------------------------------------------------------------------------------	
-	j_jal_flag <= '1' when( opcode = JAL) else '0';
+	j_jal_flag <= '1' when( opcode = JAL or opcode = J ) else '0';
 --------------------------------------------------------------------------------------------------	
-	sel_ext <= '1' when ( opcode = LB or		--MHPWS na valw <='0' otan exw epektash mhdenos?else '1'
-								 opcode = LH or
-								 opcode = ADDI or							
-								 opcode = ADDIU or
-								 func = SRA_op or
-								 func = SRAV or
-								 opcode = SLTI or
-								 opcode = SLTIU ) else '0';
+	sel_ext <= '0' when ( opcode = ANDI or		
+								 opcode = XORI or
+								 opcode = ORI  ) else '1';
 --------------------------------------------------------------------------------------------------
---SB SH SW
 	DM_ALU <= '1' when( (opcode = LW or
 							   opcode = LB or
 							   opcode = LBU or
@@ -148,7 +145,7 @@ begin
 --------------------------------------------------------------------------------------------------		
 --------------------------------------------------------------------------------------------------	
 	
-	-- I-type Control Signals ------------------------
+-- I-type Control Signals ------------------------
 	 aluop2 <=   "1000" when(opcode = addi) else
 			       "1001" when(opcode = addiu) else
 			       "1100" when(opcode = andi) else
@@ -204,16 +201,16 @@ begin
 							Reg_write <= '0';
 							Dmem_write <= '0';
 							PC_write <= '0';
-							sel_HiLow <= "00";
-							
+							en_Hi  <= '0';
+							en_Low <= '0';
 							next_state<=instr_decode;
 							
 						when instr_decode=>
 							Reg_write <= '0';
 							Dmem_write <= '0';
 							PC_write <= '0';
-							sel_HiLow <= "00";
-
+							en_Hi  <= '0';
+							en_Low <= '0';
 							if( (	(func = JR or func = JALR or func = MFHI or func = MFLO)	and RegImm_sig = '1') 
 									or opcode = J or opcode = JAL  )then
 								next_state<= write_back;
@@ -227,7 +224,8 @@ begin
 							Reg_write <= '0';
 							Dmem_write <= '0';
 							PC_write <= '0';
-							sel_HiLow <= "00";
+							en_Hi  <= '0';
+							en_Low <= '0';
 
 							if(opcode = LW or opcode = LB or opcode = LBU or opcode = LH or opcode = LHU)then
 								next_state <=  memory;								
@@ -242,8 +240,8 @@ begin
 							Reg_write <= '0';
 							Dmem_write <= '0';
 							PC_write <= '0';
-							sel_HiLow <= "00";
-							
+							en_Hi  <= '0';
+							en_Low <= '0';
 							next_state <= write_back;
 							
 						
@@ -258,17 +256,22 @@ begin
 										Reg_write <= '0';
 										Dmem_write <= '0';
 										PC_write <= '1';
-										sel_HiLow <= "00";
+										en_Hi  <= '0';
+										en_Low <= '0';
+
 							elsif(	RegImm_sig = '1' and func = MULT	)then			
 										Reg_write <= '1';
 										Dmem_write <= '1';
 										PC_write <= '1';
-										sel_HiLow <= "00";
+										en_Hi  <= '0';
+										en_Low <= '0';
+
 							else			
 										Reg_write <= '0';
 										Dmem_write <= '0';
 										PC_write <= '1';
-										sel_HiLow <= "10";-------???
+										en_Hi  <= '1';
+										en_Low <= '0';
 							end if;
 	
 							next_State <=  Instr_fetch;
@@ -279,17 +282,21 @@ begin
 										Reg_write <= '0';
 										Dmem_write <= '1';
 										PC_write <= '1';
-										sel_HiLow <= "00";
+										en_Hi  <= '0';
+										en_Low <= '0';
+
 							elsif(	RegImm_sig = '1' and func = MTHI )then
 										Reg_write <= '1';
 										Dmem_write <= '0';
 										PC_write <= '1';
-										sel_HiLow <= "00";
+										en_Hi  <= '0';
+										en_Low <= '0';
 							else
 										Reg_write <= '0';
 										Dmem_write <= '0';
 										PC_write <= '1';
-										sel_HiLow <= "00";
+										en_Hi  <= '0';
+										en_Low <= '0';
 							end if;
 							next_State <=  Instr_fetch;
 							
@@ -299,7 +306,8 @@ begin
 							Reg_write <= '0';
 							Dmem_write <= '1';
 							PC_write <= '1';
-							sel_HiLow <= "10";---------????????
+							en_Hi  <= '1';
+							en_Low <= '0';
 
 							next_state <=Instr_fetch;
 							
@@ -307,7 +315,9 @@ begin
 							Reg_write <= '0';
 							Dmem_write <= '0';
 							PC_write <= '0';
-							sel_HiLow <= "00";
+							en_Hi  <= '0';
+							en_Low <= '0';
+
 							next_state <=Instr_fetch;
 		end case;			
 	end process;
