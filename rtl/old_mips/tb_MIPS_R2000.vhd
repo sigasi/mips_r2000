@@ -30,14 +30,14 @@ BEGIN
    uut: MIPS_toplevel 
 	PORT MAP(rst => tb_reset, clk => tb_clock,
 				datain => X"00000000",
-				pc_out=>tb_pc_out,
+				pc_out =>tb_pc_out,
 				Dmem_write_out=>tb_Dmem_write_out,
 
-				IR_outt=>tb_IR_outt,
-				DMAR_out=>tb_DMAR_out,
-				RFmux_outt=>tb_RFmux_outt,
-				Bus_W_out=>tb_Bus_W_out,
-				Bus_S_out => tb_Bus_S_out,
+				IR_outt    =>tb_IR_outt,
+				DMAR_out   =>tb_DMAR_out,
+				RFmux_outt =>tb_RFmux_outt,
+				Bus_W_out  =>tb_Bus_W_out,
+				Bus_S_out  => tb_Bus_S_out,
 				status_reg => tb_status_reg,
    		   dataout => tb_dataOut,
 				dataout2=>tb_dataout2);

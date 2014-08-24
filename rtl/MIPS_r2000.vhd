@@ -27,14 +27,14 @@ component ControlUnit
 		  ALU_op : out std_logic_vector(3 downto 0);
 		  Reg_write,Dmem_write,PC_write : out std_logic;
 		  sel_HiLow : out std_logic_vector(1 downto 0);
-		  sv,lui,ne_eq,j_jal_flag : out std_logic;
+		  sv,lui_sig,ne_eq,j_jal_flag : out std_logic;
 		  Branchzero_flag,Reg32_flag,en_Hi,en_Low : out std_logic);
 end component;
 
 signal PC_write,sel_ext,Reg_Write,Reg_Imm,Dmem_write : std_logic;
 signal sel_HiLow : std_logic_vector(1 downto 0);
 signal ALU_op : std_logic_vector(3 downto 0);
-signal sv,lui,jump,Branch,ne_eq,j_jal_flag : std_logic;
+signal sv,lui_sig,jump,Branch,ne_eq,j_jal_flag : std_logic;
 signal Branchzero_flag,Reg32_flag,en_Hi,en_Low,Link,DM_ALU : std_logic;
 signal Bus_IMD_out : std_logic_vector(31 downto 0);
 begin
@@ -53,7 +53,7 @@ begin
 			ALU_op          => ALU_op,
 			sel_HiLow       => sel_HiLow,
 			sv              => sv,
-			lui             => lui,
+			lui		       => lui_sig,
 			jump            => jump,
 			Branch          => Branch,
 			ne_eq           => ne_eq,
@@ -84,7 +84,7 @@ begin
 			PC_write        => PC_write,
 			sel_HiLow       => sel_HiLow,
 			sv              => sv,
-			lui             => lui,
+			lui_sig         => lui_sig,
 			ne_eq           => ne_eq,
 			j_jal_flag      => j_jal_flag,
 			Branchzero_flag => Branchzero_flag,

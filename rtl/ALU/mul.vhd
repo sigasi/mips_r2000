@@ -14,7 +14,7 @@ signal MUL_Out : std_logic_vector(63 downto 0);
 begin
 
 	MUL_Out <= std_logic_vector( signed( Bus_A) * signed(Bus_B) );
-	Bus_hi <= MUL_Out(63 downto 32) when flag_move_to='0' else Bus_A;
+	Bus_hi  <= MUL_Out(63 downto 32) when flag_move_to='0' else Bus_A;
 	Bus_low <= MUL_Out(31 downto 0) when flag_move_to='0' else Bus_A;
 
 end Behavioral;

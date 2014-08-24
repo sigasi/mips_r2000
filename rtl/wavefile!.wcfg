@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/christiana/Documents/mips/mips/work/MIPSr2000_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="mipsr2000_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="textio" />
+            <top_module name="vcomponents" />
+            <top_module name="vital_primitives" />
+            <top_module name="vital_timing" />
+            <top_module name="vpkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/mipsr2000_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/bus_a_test" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_a_test[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_a_test[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/bus_b_test" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_b_test[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_b_test[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/bus_w_test" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_w_test[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_w_test[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/tb_reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tb_reset</obj_property>
+      <obj_property name="ObjectShortName">tb_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/tb_clock" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tb_clock</obj_property>
+      <obj_property name="ObjectShortName">tb_clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U7_dmem/data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[31:0]</obj_property>
+   </wvobject>
+</wave_config>
