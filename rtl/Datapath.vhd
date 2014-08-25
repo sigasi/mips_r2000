@@ -142,7 +142,7 @@ regP_unit  : reg generic map(w=>4) port map(clk=>clk,rst=>rst,en=>'1',di=>Bus_IM
 	U0_Imem : imem 
 	port map(clk => clk,
 				en => '1',					
-				address => Bus_IMA(10 downto 0),
+				address => Bus_IMA(12 downto 2),
 				data_out => Bus_IMD);
 				
 	U1_inc : INC

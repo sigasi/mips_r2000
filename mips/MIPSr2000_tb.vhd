@@ -35,7 +35,7 @@ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: MIPS_r2000 PORT MAP (
-          clk => clk,
+          clk => tb_clock,
           rst => tb_reset,
           Bus_A_test => Bus_A_test,
           Bus_B_test => Bus_B_test,
