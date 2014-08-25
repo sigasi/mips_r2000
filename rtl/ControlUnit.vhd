@@ -128,17 +128,17 @@ begin
 	RegImm_sig <= '1' when opcode = "000000" else '0';
 --------------------------------------------------------------------------------------------------
 	lui_sig <=  '1' when( opcode = LUI) else '0';
-<<<<<<< e3c1b58b7db3a7bd682b50bc1db5f18d25e9d9fd
+
 --------------------------------------------------------------------------------------------------			  
 	sel_HiLow <= "10" when ((func = MTHI or func = MFHI) AND RegImm_sig = '1')
                          else "11" when  ((func= MFLO or func = MTLO) AND RegImm_sig = '1')
                          else "00";		  
-=======
+
 --------------------------------------------------------------------------------------------------
 	sel_HiLow <= "10" when ((func = MTHI or func = MFHI) AND RegImm_sig = '1')
 			  else "11" when  ((func= MFLO or func = MTLO) AND RegImm_sig = '1')
 			  else "00";
->>>>>>> 6498c913648fe878f7329e55c0a1d74eb4f044a5
+
 --------------------------------------------------------------------------------------------------
 	Branchzero_flag <= '0' when( opcode = BLEZ or opcode = BGTZ or
 										  (opcode = Bxxx and (rt = "00000" or rt = "00001" or rt = "10000" or rt = "10001"))  )  else '0';
@@ -158,15 +158,15 @@ begin
 							   opcode = LHU )		and RegImm_sig = '0') else '0';
 --------------------------------------------------------------------------------------------------	
 
---	 SEL_sig <= X"1" when(opcode = beq) else
---	 						X"2" when(opcode = bne) else
---	 						X"3" when(opcode = blez) else
---	 						X"4" when(opcode = bgtz) else
---	 						X"5" when(opcode = bxxx and (rt = "00000" or rt = "10000")) else
---	 						X"6" when(opcode = bxxx and (rt = "00001" or rt = "10001")) else
---	 						X"7" when(RegImm_sig = '1' and (func = jr or func = jalr)) else
---	 						X"8" when(opcode = j or opcode = jal) else
---	 						X"0";
+	 SEL_sig <= X"1" when(opcode = beq) else
+	 						X"2" when(opcode = bne) else
+	 						X"3" when(opcode = blez) else
+	 						X"4" when(opcode = bgtz) else
+	 						X"5" when(opcode = bxxx and (rt = "00000" or rt = "10000")) else
+	 						X"6" when(opcode = bxxx and (rt = "00001" or rt = "10001")) else
+	 						X"7" when(RegImm_sig = '1' and (func = jr or func = jalr)) else
+	 						X"8" when(opcode = j or opcode = jal) else
+	 						X"0";
 	 	
 --------------------------------------------------------------------------------------------------	
 	
