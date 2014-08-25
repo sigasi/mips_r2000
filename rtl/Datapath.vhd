@@ -10,6 +10,7 @@ entity Datapath is
 			sel_HiLow : in std_logic_vector(1 downto 0);
 			sv,lui,jump,Branch,ne_eq,j_jal_flag : in std_logic;
 			Branchzero_flag,Reg32_flag,en_Hi,en_Low,Link,DM_ALU : in std_logic;
+			SEL_sig : in std_logic_vector(3 downto 0);
 			Bus_W_test,Bus_IMD_out : out std_logic_vector(31 downto 0));
 end Datapath;
 
@@ -114,6 +115,12 @@ component RFmux
 			sel_HiLow : in std_logic_vector(1 downto 0);
 			RFmux_out : out std_logic_vector(31 downto 0));
 end component;
+
+component SEL
+port(Zero, Ne : in std_logic;
+			 SEL_sig : in std_logic_vector(3 downto 0);
+			 sel_NPC : out std_logic_vector(1 downto 0));
+end component;
 --===========================================================================
 signal WE,opcode,regP : std_logic_vector(3 downto 0);
 signal pc,regN,regALU_out : std_logic_vector(31 downto 0);
@@ -126,6 +133,8 @@ signal Bus_hi,Bus_low,Bus_IMD,data_out,PSD : std_logic_vector(31 downto 0);
 signal Bus_A,Bus_B,Bus_W,ALUmux_out : std_logic_vector(31 downto 0);
 signal status_reg_in,status_reg_out : std_logic_vector(3 downto 0);
 signal Bus_DMA : std_logic_vector(10 downto 0);
+
+signal sel_NPC : std_logic_vector(1 downto 0);
 begin
 
 Bus_A_test <= Bus_A;
@@ -233,13 +242,14 @@ MDRin_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>regB,
 				
 --========================WRITE back==================================
 				
-	U8 : NPCmux
-	port map(regN=>regN,
-				regD=>regD,regA=>regA,
-				regM=>regM,zero=>status_reg_out(3),
-				jump=>jump,Branch=>Branch,
-				ne_eq=>ne_eq,j_jal_flag=>j_jal_flag,
-				npcmux_out =>npcmux_out);
+--	U8 : NPCmux
+--	port map(regN=>regN,
+--				regD=>regD,regA=>regA,
+--				regM=>regM,zero=>status_reg_out(3),
+--				jump=>jump,Branch=>Branch,
+--				ne_eq=>ne_eq,j_jal_flag=>j_jal_flag,
+--				npcmux_out =>npcmux_out);
+
 	U9 : RFmux 
 	port map(regN=>regN,
 				regHi=>regHi,
@@ -250,5 +260,24 @@ MDRin_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>regB,
 				DM_ALU =>DM_ALU,
 				sel_HiLow =>sel_HiLow,
 				RFmux_out=>Bus_W);
+				
+				
+				
+				sel_unt: SEL
+				port map(Zero => status_reg_out(3),
+				         Ne => status_reg_out(2),
+			            SEL_sig => SEL_sig,
+			            sel_NPC => sel_NPC);
+							
+	process(sel_NPC, regN,regD, regA, regM)
+	begin
+		case sel_NPC is
+			when "00" => npcmux_out <= regN;
+			when "01" => npcmux_out <= regD;
+			when "10" => npcmux_out <= regA;
+			when "11" => npcmux_out <= regM;
+			when others => npcmux_out <= (others =>'0');
+		end case;
+	end process;
 end Behavioral;
 

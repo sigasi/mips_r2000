@@ -10,6 +10,7 @@ entity ControlUnit is
 		  Reg_write,Dmem_write,PC_write : out std_logic;
 		  sel_HiLow : out std_logic_vector(1 downto 0);
 		  sv,lui_sig,ne_eq,j_jal_flag : out std_logic;
+		  SEL_sig : out std_logic_vector(3 downto 0);
 		  Branchzero_flag,Reg32_flag,en_Hi,en_Low : out std_logic);
 end ControlUnit;
 
@@ -82,10 +83,22 @@ architecture Behavioral of ControlUnit is
 	signal rt : std_logic_vector(4 downto 0);
 begin
 
+	SEL_sig <= X"1" when(opcode = beq) else
+	 						X"2" when(opcode = bne) else
+	 						X"3" when(opcode = blez) else
+	 						X"4" when(opcode = bgtz) else
+	 						X"5" when(opcode = bxxx and (rt = "00000" or rt = "10000")) else
+	 						X"6" when(opcode = bxxx and (rt = "00001" or rt = "10001")) else
+	 						X"7" when(RegImm_sig = '1' and (func = jr or func = jalr)) else
+	 						X"8" when(opcode = j or opcode = jal) else
+	 						X"0";
+
 	opcode   <= instruction(31 downto 26);
 	rt 		<= instruction(20 downto 16);
 	func		<= instruction(5 downto 0);
 	
+
+	ne_eq <= '1' when(opcode = bne) else '0';
 
 	RegImm <= RegImm_sig or branch_sig;
 	ALU_op <= aluop1 when RegImm_sig='1' else aluop2; 
@@ -115,10 +128,17 @@ begin
 	RegImm_sig <= '1' when opcode = "000000" else '0';
 --------------------------------------------------------------------------------------------------
 	lui_sig <=  '1' when( opcode = LUI) else '0';
+<<<<<<< e3c1b58b7db3a7bd682b50bc1db5f18d25e9d9fd
 --------------------------------------------------------------------------------------------------			  
 	sel_HiLow <= "10" when ((func = MTHI or func = MFHI) AND RegImm_sig = '1')
                          else "11" when  ((func= MFLO or func = MTLO) AND RegImm_sig = '1')
                          else "00";		  
+=======
+--------------------------------------------------------------------------------------------------
+	sel_HiLow <= "10" when ((func = MTHI or func = MFHI) AND RegImm_sig = '1')
+			  else "11" when  ((func= MFLO or func = MTLO) AND RegImm_sig = '1')
+			  else "00";
+>>>>>>> 6498c913648fe878f7329e55c0a1d74eb4f044a5
 --------------------------------------------------------------------------------------------------
 	Branchzero_flag <= '0' when( opcode = BLEZ or opcode = BGTZ or
 										  (opcode = Bxxx and (rt = "00000" or rt = "00001" or rt = "10000" or rt = "10001"))  )  else '0';
@@ -216,8 +236,7 @@ begin
 							PC_write <= '0';
 							en_Hi  <= '0';
 							en_Low <= '0';
-							if( (	(func = JR or func = JALR or func = MFHI or func = MFLO)	and RegImm_sig = '1') 
-									or opcode = J or opcode = JAL  )then
+							if( (	(func = JR or func = JALR or func = MFHI or func = MFLO)	and RegImm_sig = '1') or opcode = J or opcode = JAL  )then
 								next_state<= write_back;
 							elsif(	RegImm_sig = '1' and (func = MTHI or func = MTLO)	)then
 								next_state <=  execution_wb;	

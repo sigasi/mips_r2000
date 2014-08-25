@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/george/Documents/mips_r2000/mips/work/MIPSr2000_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="mipsr2000_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="textio" />
+            <top_module name="vcomponents" />
+            <top_module name="vital_primitives" />
+            <top_module name="vital_timing" />
+            <top_module name="vpkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="36" />
+   <wvobject fp_name="/mipsr2000_tb/uut/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/CU_unit/current_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/npcmux_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">npcmux_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">npcmux_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/bus_ima" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_ima[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_ima[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/bus_imd" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_imd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_imd[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/bus_dma" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_dma[10:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_dma[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U7_dmem/R0/do" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">do[7:0]</obj_property>
+      <obj_property name="ObjectShortName">do[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/CU_unit/opcode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">opcode[5:0]</obj_property>
+      <obj_property name="ObjectShortName">opcode[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/CU_unit/func" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">func[5:0]</obj_property>
+      <obj_property name="ObjectShortName">func[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/status_reg_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">status_reg_out[3:0]</obj_property>
+      <obj_property name="ObjectShortName">status_reg_out[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider19" type="divider">
+      <obj_property name="label">MEMORIES</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U0_Imem/address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">address[10:0]</obj_property>
+      <obj_property name="ObjectShortName">address[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U0_Imem/data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider22" type="divider">
+      <obj_property name="label">ALU</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U5_ALU/alu_op" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_op[3:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_op[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U5_ALU/bus_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U5_ALU/bus_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U5_ALU/alu_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regalu_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">regalu_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">regalu_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/bus_w" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_w[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_w[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/zero" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">zero</obj_property>
+      <obj_property name="ObjectShortName">zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="group167" type="group">
+      <obj_property name="label">NPC MUX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/regn" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">regn[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regn[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/regd" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">regd[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regd[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/rega" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rega[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rega[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/regm" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">regm[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regm[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/zero" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">zero</obj_property>
+         <obj_property name="ObjectShortName">zero</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/jump" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">jump</obj_property>
+         <obj_property name="ObjectShortName">jump</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/branch" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">branch</obj_property>
+         <obj_property name="ObjectShortName">branch</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/ne_eq" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ne_eq</obj_property>
+         <obj_property name="ObjectShortName">ne_eq</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/j_jal_flag" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">j_jal_flag</obj_property>
+         <obj_property name="ObjectShortName">j_jal_flag</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/sel" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sel</obj_property>
+         <obj_property name="ObjectShortName">sel</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/mux_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mux_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mux_out[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/mux_out2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mux_out2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mux_out2[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/npcmux_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">npcmux_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">npcmux_out[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group106" type="group">
+      <obj_property name="label">RF MUX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/regn" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">regn[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regn[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/reghi" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reghi[31:0]</obj_property>
+         <obj_property name="ObjectShortName">reghi[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/reglow" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reglow[31:0]</obj_property>
+         <obj_property name="ObjectShortName">reglow[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/regs" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">regs[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/mdrout" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mdrout[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mdrout[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/link" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">link</obj_property>
+         <obj_property name="ObjectShortName">link</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/dm_alu" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dm_alu</obj_property>
+         <obj_property name="ObjectShortName">dm_alu</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/sel_hilow" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sel_hilow[1:0]</obj_property>
+         <obj_property name="ObjectShortName">sel_hilow[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/mux_out1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mux_out1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mux_out1[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/mux_out2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mux_out2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mux_out2[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/mux_out3" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mux_out3[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mux_out3[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U9/rfmux_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rfmux_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rfmux_out[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider35" type="divider">
+      <obj_property name="label">RF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="group270" type="group">
+      <obj_property name="label">RF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/rt" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rt[4:0]</obj_property>
+         <obj_property name="ObjectShortName">rt[4:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#0000ff</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/rs" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rs[4:0]</obj_property>
+         <obj_property name="ObjectShortName">rs[4:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#0000ff</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/rd" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rd[4:0]</obj_property>
+         <obj_property name="ObjectShortName">rd[4:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#0000ff</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/bus_a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/bus_b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">regfile_coff[0:31]</obj_property>
+      <obj_property name="ObjectShortName">regfile_coff[0:31]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[1]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[2]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[3]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[4]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[5]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[6]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[7]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[8]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[9]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[10]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[10]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[11]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[11]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[12]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[12]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[13]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[13]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[14]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[14]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[15]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[15]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[15]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[16]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[16]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[16]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[17]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[17]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[17]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[18]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[18]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[18]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[19]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[19]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[19]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[20]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[20]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[20]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[21]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[21]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[21]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[22]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[22]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[22]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[23]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[23]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[23]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[24]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[24]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[24]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[25]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[25]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[25]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[26]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[26]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[26]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[27]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[27]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[27]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[28]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[28]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[28]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[29]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[29]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[29]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[30]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[30]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[30]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[31]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[31]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[31]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider263" type="divider">
+      <obj_property name="label">DMcontrol</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U6_DMcontr/opcode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">opcode[5:0]</obj_property>
+      <obj_property name="ObjectShortName">opcode[5:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#008000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U6_DMcontr/aluout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">aluout[12:0]</obj_property>
+      <obj_property name="ObjectShortName">aluout[12:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U6_DMcontr/mdrin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mdrin[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mdrin[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U6_DMcontr/bus_dma" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_dma[10:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_dma[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U6_DMcontr/datatodm" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">datatodm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">datatodm[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U6_DMcontr/datafromdm" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">datafromdm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">datafromdm[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U6_DMcontr/mdrout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mdrout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mdrout[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/reghi" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reghi[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reghi[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/reglow" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reglow[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reglow[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

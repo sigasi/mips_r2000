@@ -17,6 +17,7 @@ component Datapath
 			sel_HiLow : in std_logic_vector(1 downto 0);
 			sv,lui,jump,Branch,ne_eq,j_jal_flag : in std_logic;
 			Branchzero_flag,Reg32_flag,en_Hi,en_Low,Link,DM_ALU : in std_logic;
+			SEL_sig : in std_logic_vector(3 downto 0);
 			Bus_W_test,Bus_IMD_out : out std_logic_vector(31 downto 0));
 end component;
 
@@ -28,6 +29,7 @@ component ControlUnit
 		  Reg_write,Dmem_write,PC_write : out std_logic;
 		  sel_HiLow : out std_logic_vector(1 downto 0);
 		  sv,lui_sig,ne_eq,j_jal_flag : out std_logic;
+		  SEL_sig : out std_logic_vector(3 downto 0);
 		  Branchzero_flag,Reg32_flag,en_Hi,en_Low : out std_logic);
 end component;
 
@@ -37,6 +39,8 @@ signal ALU_op : std_logic_vector(3 downto 0);
 signal sv,lui_sig,jump,Branch,ne_eq,j_jal_flag : std_logic;
 signal Branchzero_flag,Reg32_flag,en_Hi,en_Low,Link,DM_ALU : std_logic;
 signal Bus_IMD_out : std_logic_vector(31 downto 0);
+
+signal SEL_sig : std_logic_vector(3 downto 0);
 begin
 
 	Datapath_unit : Datapath
@@ -64,6 +68,7 @@ begin
 			en_Low          => en_Low,
 			Link            => Link,
 			DM_ALU          => DM_ALU,
+			SEL_sig => SEL_sig,
 			Bus_W_test      => Bus_W_test,
 			Bus_IMD_out		 => Bus_IMD_out);
 			
@@ -87,6 +92,7 @@ begin
 			lui_sig         => lui_sig,
 			ne_eq           => ne_eq,
 			j_jal_flag      => j_jal_flag,
+			SEL_sig => SEL_sig,
 			Branchzero_flag => Branchzero_flag,
 			Reg32_flag      => Reg32_flag,
 			en_Hi           => en_Hi,

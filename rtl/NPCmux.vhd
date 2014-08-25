@@ -19,7 +19,12 @@ begin
 	mux_out2<= regA when jump = '1' else mux_out;
 	
 	npcmux_out <= regD when j_jal_flag='1' else mux_out2;
+<<<<<<< e3c1b58b7db3a7bd682b50bc1db5f18d25e9d9fd
 	
 
 end Behavioral;
 
+=======
+		
+end Behavioral;
+>>>>>>> 6498c913648fe878f7329e55c0a1d74eb4f044a5
