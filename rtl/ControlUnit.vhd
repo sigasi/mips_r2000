@@ -260,17 +260,17 @@ begin
 										en_Low <= '0';
 
 							elsif(	RegImm_sig = '1' and func = MULT	)then			
-										Reg_write <= '1';
-										Dmem_write <= '1';
-										PC_write <= '1';
-										en_Hi  <= '0';
-										en_Low <= '0';
-
-							else			
 										Reg_write <= '0';
 										Dmem_write <= '0';
 										PC_write <= '1';
 										en_Hi  <= '1';
+										en_Low <= '1';
+
+							else			
+										Reg_write <= '1';
+										Dmem_write <= '0';
+										PC_write <= '1';
+										en_Hi  <= '0';
 										en_Low <= '0';
 							end if;
 	
@@ -280,16 +280,16 @@ begin
 						when execution_wb =>
 							if(	RegImm_sig = '1' and func = MTLO	)then
 										Reg_write <= '0';
-										Dmem_write <= '1';
-										PC_write <= '1';
-										en_Hi  <= '0';
-										en_Low <= '0';
-
-							elsif(	RegImm_sig = '1' and func = MTHI )then
-										Reg_write <= '1';
 										Dmem_write <= '0';
 										PC_write <= '1';
 										en_Hi  <= '0';
+										en_Low <= '1';
+
+							elsif(	RegImm_sig = '1' and func = MTHI )then
+										Reg_write <= '0';
+										Dmem_write <= '0';
+										PC_write <= '1';
+										en_Hi  <= '1';
 										en_Low <= '0';
 							else
 										Reg_write <= '0';
@@ -306,7 +306,7 @@ begin
 							Reg_write <= '0';
 							Dmem_write <= '1';
 							PC_write <= '1';
-							en_Hi  <= '1';
+							en_Hi  <= '0';
 							en_Low <= '0';
 
 							next_state <=Instr_fetch;
