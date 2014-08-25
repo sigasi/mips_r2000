@@ -231,7 +231,7 @@ MDRin_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>'1',di=>regB,
 				data_in => DatatoDM,
 				data_out => DatafromDM);
 				
---========================WRITE OTI THELW==================================
+--========================WRITE back==================================
 				
 	U8 : NPCmux
 	port map(regN=>regN,

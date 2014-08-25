@@ -13,12 +13,13 @@ signal mux_out,mux_out2 : std_logic_vector(31 downto 0);
 signal sel : std_logic;
 
 begin
-
+	
 	sel <= Branch and (zero xor ne_eq);
 	mux_out <= regM when sel = '1' else regN;
 	mux_out2<= regA when jump = '1' else mux_out;
 	
 	npcmux_out <= regD when j_jal_flag='1' else mux_out2;
+	
 
 end Behavioral;
 

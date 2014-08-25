@@ -13,13 +13,6 @@ entity ControlUnit is
 		  Branchzero_flag,Reg32_flag,en_Hi,en_Low : out std_logic);
 end ControlUnit;
 
-
---rs => instruction(25 downto 21),
---rt => instruction(20 downto 16)
---rd => instruction(15 downto 11)
-
---		  ne_eq,
-
 architecture Behavioral of ControlUnit is
 
 ------------------Instructions----------------------------
@@ -96,6 +89,7 @@ begin
 
 	RegImm <= RegImm_sig or branch_sig;
 	ALU_op <= aluop1 when RegImm_sig='1' else aluop2; 
+	ne_eq <= '1' when(opcode = bne) else '0';
 --------------------------------------------------------------------------------------------------	
 	jump <= '1' when(((func = JR or
 							func = JALR) and RegImm_sig = '1') or 
@@ -121,10 +115,10 @@ begin
 	RegImm_sig <= '1' when opcode = "000000" else '0';
 --------------------------------------------------------------------------------------------------
 	lui_sig <=  '1' when( opcode = LUI) else '0';
---------------------------------------------------------------------------------------------------
-	sel_HiLow <= "10" when (func = MTHI or func = MFHI)
-			  else "11" when  (func= MFLO or func = MTLO)
-			  else "00";
+--------------------------------------------------------------------------------------------------			  
+	sel_HiLow <= "10" when ((func = MTHI or func = MFHI) AND RegImm_sig = '1')
+                         else "11" when  ((func= MFLO or func = MTLO) AND RegImm_sig = '1')
+                         else "00";		  
 --------------------------------------------------------------------------------------------------
 	Branchzero_flag <= '0' when( opcode = BLEZ or opcode = BGTZ or
 										  (opcode = Bxxx and (rt = "00000" or rt = "00001" or rt = "10000" or rt = "10001"))  )  else '0';
@@ -142,7 +136,18 @@ begin
 							   opcode = LBU or
 							   opcode = LH or
 							   opcode = LHU )		and RegImm_sig = '0') else '0';
---------------------------------------------------------------------------------------------------		
+--------------------------------------------------------------------------------------------------	
+
+--	 SEL_sig <= X"1" when(opcode = beq) else
+--	 						X"2" when(opcode = bne) else
+--	 						X"3" when(opcode = blez) else
+--	 						X"4" when(opcode = bgtz) else
+--	 						X"5" when(opcode = bxxx and (rt = "00000" or rt = "10000")) else
+--	 						X"6" when(opcode = bxxx and (rt = "00001" or rt = "10001")) else
+--	 						X"7" when(RegImm_sig = '1' and (func = jr or func = jalr)) else
+--	 						X"8" when(opcode = j or opcode = jal) else
+--	 						X"0";
+	 	
 --------------------------------------------------------------------------------------------------	
 	
 -- I-type Control Signals ------------------------
@@ -194,7 +199,7 @@ begin
 			end if;
 		end process;		
 -----------------------------------
-	process(current_state)
+	process(current_state,opcode,func,rt,RegImm_sig)
 		begin
 		case current_state is
 						when Instr_fetch =>
