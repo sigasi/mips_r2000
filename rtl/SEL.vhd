@@ -4,7 +4,7 @@
 -- 
 -- Create Date:      
 -- Design Name: 
--- Module Name:     - Behavioral 
+-- Module Name:     - Behavioral - RTL
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
