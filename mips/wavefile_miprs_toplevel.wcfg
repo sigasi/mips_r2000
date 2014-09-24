@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/george/Documents/mips_r2000/mips/work/MIPSr2000_tb_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/christiana/Documents/mips/mips/work/MIPSr2000_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="mipsr2000_tb" />
             <top_module name="numeric_std" />
@@ -127,65 +127,6 @@
    <wvobject fp_name="group167" type="group">
       <obj_property name="label">NPC MUX</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/regn" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">regn[31:0]</obj_property>
-         <obj_property name="ObjectShortName">regn[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/regd" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">regd[31:0]</obj_property>
-         <obj_property name="ObjectShortName">regd[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/rega" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">rega[31:0]</obj_property>
-         <obj_property name="ObjectShortName">rega[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/regm" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">regm[31:0]</obj_property>
-         <obj_property name="ObjectShortName">regm[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/zero" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">zero</obj_property>
-         <obj_property name="ObjectShortName">zero</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/jump" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">jump</obj_property>
-         <obj_property name="ObjectShortName">jump</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/branch" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">branch</obj_property>
-         <obj_property name="ObjectShortName">branch</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/ne_eq" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">ne_eq</obj_property>
-         <obj_property name="ObjectShortName">ne_eq</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/j_jal_flag" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">j_jal_flag</obj_property>
-         <obj_property name="ObjectShortName">j_jal_flag</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/sel" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">sel</obj_property>
-         <obj_property name="ObjectShortName">sel</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/mux_out" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">mux_out[31:0]</obj_property>
-         <obj_property name="ObjectShortName">mux_out[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/mux_out2" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">mux_out2[31:0]</obj_property>
-         <obj_property name="ObjectShortName">mux_out2[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U8/npcmux_out" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">npcmux_out[31:0]</obj_property>
-         <obj_property name="ObjectShortName">npcmux_out[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="group106" type="group">
       <obj_property name="label">RF MUX</obj_property>
@@ -377,6 +318,8 @@
          <obj_property name="ElementShortName">[16]</obj_property>
          <obj_property name="ObjectShortName">regfile_coff[16]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
       </wvobject>
       <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/U3_RF/regfile_coff[17]" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">[17]</obj_property>
