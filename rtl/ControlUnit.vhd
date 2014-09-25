@@ -103,6 +103,7 @@ begin
 	RegImm <= RegImm_sig or branch_sig;
 	ALU_op <= aluop1 when RegImm_sig='1' else aluop2; 
 	ne_eq <= '1' when(opcode = bne) else '0';
+	ne_eq <= '1' when(opcode = bne) else '0';
 --------------------------------------------------------------------------------------------------	
 	jump <= '1' when(((func = JR or
 							func = JALR) and RegImm_sig = '1') or 

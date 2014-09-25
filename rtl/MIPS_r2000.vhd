@@ -4,6 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity MIPS_r2000 is
 	port(clk,rst : in std_logic;
+		verification : in std_logic_vector(1 downto 0);
 		Bus_A_test,Bus_B_test,Bus_W_test : out std_logic_vector(31 downto 0));
 end MIPS_r2000;
 
