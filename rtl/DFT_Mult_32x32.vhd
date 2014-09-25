@@ -27,21 +27,20 @@ port (clock    : in std_logic;
 end component;
 
 component DTRM
+  generic(m: positive :=8); 
     port (clock_top : in std_logic;
-		clear_top : in std_logic;	       
-		count_top : in std_logic;			--enable counter
-		X_top     : in std_logic_vector(31 DOWNTO 0);
-		Y_top     : in std_logic_vector(31 DOWNTO 0);
-		P_top     : out std_logic_vector(63 downto 0)	);
+			clear_top : in std_logic;	       
+			count_top : in std_logic;			
+			Q:	in std_logic_vector(m-1 downto 0);
+			P_top     : out std_logic_vector(63 downto 0));
 end component;      
 
 component counter 
   generic(n: positive :=8);
-  port(	
-		clock:	in std_logic;
+  port(clock:	in std_logic;
 		clear:	in std_logic;
 		count:	in std_logic;
-		Q:	out std_logic_vector(n-1 downto 0));
+		Q:	out std_logic_vector(n-1 downto 0)	);
 end component;
 
 component mul_32x32 
@@ -58,11 +57,11 @@ component MISR
 end component;
 
 signal Bus_A_sig,Bus_B_sig : std_logic_vector(31 downto 0);
-signal flag_move_to : std_logic;
+signal flag_move_to, count : std_logic;
 signal Mult_out : std_logic_vector(63 downto 0);
 signal do,BUS_AB : std_logic_vector(63 downto 0);
 signal data_out,P_top : std_logic_vector(63 downto 0);
-signal X_top,Y_top : std_logic_vector(31 DOWNTO 0);
+
 begin
 
 	Stall <= '0' when DFT_M = "00" else '1';
@@ -76,17 +75,20 @@ begin
 				seed  => BUS_AB,
 				data_out => data_out); 
 				
---	counter :
+	counter_p : counter 
+   --generic map(n:=8)
+   port map(clock => clk,clear => rst,
+				count => count,
+				Q => Q);
 	
 	DTRM_P : DTRM
     port map(clock_top => clk,
-		clear_top => '1',--: in std_logic;			????       
-		count_top => '1',--: in std_logic;			????--enable counter
-		X_top     => X_top,
-		Y_top     => Y_top,
-		P_top     => P_top);
+				 clear_top => rst,
+				 count_top => count,
+				 Q => Q,
+				 P_top => P_top);
 		
-	process(DFT_M,Bus_A,Bus_B,clk,rst)
+	process(DFT_M,Bus_A,Bus_B)
 	begin
 		case DFT_M is 
 			when "00" => Bus_A_sig <= Bus_A;
@@ -96,6 +98,7 @@ begin
 							 
 			when "10" => Bus_A_sig <= P_top(63 downto 32);			--DTRM
 							 Bus_B_sig <= P_top(31 downto 0);
+							 count <= '1';  --enable counter
 			
 			when "11" => Bus_A_sig <= do(63 downto 32); 				-- ATPG method
 							 Bus_B_sig <= do(31 downto 0);

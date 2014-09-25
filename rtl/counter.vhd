@@ -10,8 +10,7 @@ generic(n: positive :=8);
 port(	clock:	in std_logic;
 	clear:	in std_logic;
 	count:	in std_logic;
-	Q:	out std_logic_vector(n-1 downto 0)
-);
+	Q:	out std_logic_vector(n-1 downto 0));
 end counter;
 
 ----------------------------------------------------
