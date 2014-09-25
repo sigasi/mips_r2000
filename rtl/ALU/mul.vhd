@@ -2,13 +2,13 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity mul is
+entity mul_32x32 is
 	port( Bus_A,Bus_B : in std_logic_vector(31 downto 0);
 			flag_move_to : in std_logic;
 			Bus_hi,Bus_low : out std_logic_vector(31 downto 0));
-end mul;
+end mul_32x32;
 
-architecture Behavioral of mul is
+architecture Behavioral of mul_32x32 is
 signal MUL_Out : std_logic_vector(63 downto 0);
 
 begin
