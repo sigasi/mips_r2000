@@ -21,7 +21,7 @@ begin
 
     -- behavior describe the counter
 
-    process(clock, count, clear)
+    process(clock, clear)
     begin
 	if clear = '1' then
  	    Pre_Q <= (others=>'0');

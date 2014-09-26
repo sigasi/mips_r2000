@@ -27,9 +27,7 @@ port (clock    : in std_logic;
 end component;
 
 component DTRM
-    port (clock_top : in std_logic;
-			clear_top : in std_logic;	       
-			count_top : in std_logic;			
+    port (clock_top : in std_logic;       	
 			Q:	in std_logic_vector(7 downto 0);
 			P_top     : out std_logic_vector(63 downto 0));
 end component;      
@@ -38,7 +36,7 @@ component counter
   port(clock:	in std_logic;
 		clear:	in std_logic;
 		count:	in std_logic;
-		Q:	out std_logic_vector(7 downto 0)	);
+		Q :	out std_logic_vector(7 downto 0)	);
 end component;
 
 component mul_32x32 
@@ -56,21 +54,23 @@ end component;
 
 signal Bus_A_sig,Bus_B_sig : std_logic_vector(31 downto 0);
 signal flag_move_to, count : std_logic;
-signal do,BUS_AB : std_logic_vector(63 downto 0);
-signal data_out,P_top : std_logic_vector(63 downto 0);
+signal do,P_sig : std_logic_vector(63 downto 0);
+signal data_out,P_top,signature,Q_sig : std_logic_vector(63 downto 0);
 signal Q: std_logic_vector(7 downto 0);
+
 
 begin
 
+	P <= P_sig;
+	Q_sig <= X"00000000000000"& Q;
 	Stall <= '0' when DFT_M = "00" else '1';
-	BUS_AB <= Bus_A & Bus_B;
 	ATPG_P : ATPG 
 	port map(clk => clk, rst => rst,
 				do => do);
 				
 	LFSR_P : LFSR
 	port map(clock => clk,reset => rst,
-				seed  => BUS_AB,
+				seed  => Q_sig,
 				data_out => data_out); 
 				
 	counter_p : counter 
@@ -78,29 +78,30 @@ begin
 				count => count,
 				Q => Q);
 	
-	DTRM_P : DTRM
+	DTRM_p : DTRM
     port map(clock_top => clk,
-				 clear_top => rst,
-				 count_top => count,
 				 Q => Q,
 				 P_top => P_top);
 		
-	process(DFT_M,Bus_A,Bus_B)
+	process(DFT_M,Bus_A,Bus_B,do,P_top,data_out)
 	begin
 		case DFT_M is 
 			when "00" => Bus_A_sig <= Bus_A;
 							 Bus_B_sig <= Bus_B;
 			when "01" => Bus_A_sig <= data_out(63 downto 32);     --LFSR		
 							 Bus_B_sig <= data_out(31 downto 0);
+							 count <= '1'; 
 							 
 			when "10" => Bus_A_sig <= P_top(63 downto 32);			--DTRM
 							 Bus_B_sig <= P_top(31 downto 0);
-							 count <= '1';  --enable counter
+							 count <= '1';  
 			
 			when "11" => Bus_A_sig <= do(63 downto 32); 				-- ATPG method
 							 Bus_B_sig <= do(31 downto 0);
+							 
 			when others => Bus_A_sig <=(others =>'0');
 							   Bus_B_sig <=(others =>'0');
+								count <= '0'; 
 		end case;
 	end process;
 	
@@ -108,12 +109,12 @@ begin
 	port map(Bus_A => Bus_A_sig,
 				Bus_B => Bus_B_sig,
 				flag_move_to => flag_move_to, 
-				Bus_hi => P(63 downto 32),
-				Bus_low => P(31 downto 0));
+				Bus_hi => P_sig(63 downto 32),
+				Bus_low => P_sig(31 downto 0));
 				
 	MISR_p : MISR
 	port map(clock => clk,reset => rst,
-				data_in => Mult_out,
+				data_in => P_sig,
 				signature => signature);
 end Behavioral;
 
