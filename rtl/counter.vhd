@@ -5,19 +5,17 @@ use ieee.std_logic_unsigned.all;
 ----------------------------------------------------
 
 entity counter is
-
-generic(n: positive :=8);
-port(	clock:	in std_logic;
-	clear:	in std_logic;
-	count:	in std_logic;
-	Q:	out std_logic_vector(n-1 downto 0));
+	port(	clock:	in std_logic;
+			clear:	in std_logic;
+			count:	in std_logic;
+			Q:	out std_logic_vector(7 downto 0));
 end counter;
 
 ----------------------------------------------------
 
 architecture behv of counter is		 	  
 	
-    signal Pre_Q: std_logic_vector(n-1 downto 0):=(others => '0');
+    signal Pre_Q: std_logic_vector(7 downto 0):=(others => '0');
 
 begin
 

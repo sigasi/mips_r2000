@@ -27,20 +27,18 @@ port (clock    : in std_logic;
 end component;
 
 component DTRM
-  generic(m: positive :=8); 
     port (clock_top : in std_logic;
 			clear_top : in std_logic;	       
 			count_top : in std_logic;			
-			Q:	in std_logic_vector(m-1 downto 0);
+			Q:	in std_logic_vector(7 downto 0);
 			P_top     : out std_logic_vector(63 downto 0));
 end component;      
 
 component counter 
-  generic(n: positive :=8);
   port(clock:	in std_logic;
 		clear:	in std_logic;
 		count:	in std_logic;
-		Q:	out std_logic_vector(n-1 downto 0)	);
+		Q:	out std_logic_vector(7 downto 0)	);
 end component;
 
 component mul_32x32 
@@ -58,9 +56,9 @@ end component;
 
 signal Bus_A_sig,Bus_B_sig : std_logic_vector(31 downto 0);
 signal flag_move_to, count : std_logic;
-signal Mult_out : std_logic_vector(63 downto 0);
 signal do,BUS_AB : std_logic_vector(63 downto 0);
 signal data_out,P_top : std_logic_vector(63 downto 0);
+signal Q: std_logic_vector(7 downto 0);
 
 begin
 
@@ -76,7 +74,6 @@ begin
 				data_out => data_out); 
 				
 	counter_p : counter 
-   --generic map(n:=8)
    port map(clock => clk,clear => rst,
 				count => count,
 				Q => Q);
@@ -111,12 +108,12 @@ begin
 	port map(Bus_A => Bus_A_sig,
 				Bus_B => Bus_B_sig,
 				flag_move_to => flag_move_to, 
-				Bus_hi => Mult_out(63 downto 32),
-				Bus_low => Mult_out(31 downto 0));
+				Bus_hi => P(63 downto 32),
+				Bus_low => P(31 downto 0));
 				
 	MISR_p : MISR
 	port map(clock => clk,reset => rst,
 				data_in => Mult_out,
-				signature => P);
+				signature => signature);
 end Behavioral;
 
