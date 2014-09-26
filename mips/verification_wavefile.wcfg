@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/christiana/Documents/mips/mips/work/DFT_mul_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="dft_mul_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/dft_mul_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/bus_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/bus_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/dft_m" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dft_m[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dft_m[1:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/p" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">p[63:0]</obj_property>
+      <obj_property name="ObjectShortName">p[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/stall" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">stall</obj_property>
+      <obj_property name="ObjectShortName">stall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/passfail" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">passfail</obj_property>
+      <obj_property name="ObjectShortName">passfail</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="group100" type="group">
+      <obj_property name="label">Counter</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dft_mul_tb/uut/counter_p/pre_q" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">pre_q[7:0]</obj_property>
+         <obj_property name="ObjectShortName">pre_q[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/counter_p/q" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">q[7:0]</obj_property>
+         <obj_property name="ObjectShortName">q[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/counter_p/count" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">count</obj_property>
+         <obj_property name="ObjectShortName">count</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group10" type="group">
+      <obj_property name="label">MULT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_hi" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_hi[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_hi[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_low" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_low[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_low[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/Mult/mul_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mul_out[63:0]</obj_property>
+         <obj_property name="ObjectShortName">mul_out[63:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group16" type="group">
+      <obj_property name="label">ATPG</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dft_mul_tb/uut/ATPG_P/addr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addr[6:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/ATPG_P/do" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">do[63:0]</obj_property>
+         <obj_property name="ObjectShortName">do[63:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group20" type="group">
+      <obj_property name="label">LFSR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="vbus86" type="vbus" db_ref_id="1">
+         <obj_property name="label">Seed(7-0)</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/dft_mul_tb/uut/LFSR_P/seed[7]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">seed[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/LFSR_P/seed[6]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">seed[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/LFSR_P/seed[5]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">seed[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/LFSR_P/seed[4]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">seed[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/LFSR_P/seed[3]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">seed[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/LFSR_P/seed[2]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">seed[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/LFSR_P/seed[1]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">seed[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/LFSR_P/seed[0]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">seed[0]</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group104" type="group">
+      <obj_property name="label">DTRM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dft_mul_tb/uut/DTRM_p/q" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">q[7:0]</obj_property>
+         <obj_property name="ObjectShortName">q[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

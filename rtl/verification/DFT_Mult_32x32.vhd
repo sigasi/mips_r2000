@@ -9,7 +9,8 @@ entity DFT_Mult_32x32 is
 			DFT_M : in std_logic_vector(1 downto 0);
 			P   : out std_logic_vector(63 downto 0);
 			Stall : out std_logic;
-			PassFail : out std_logic);
+			PassFail : out std_logic;
+			signature : out std_logic_vector(63 downto 0));
 end DFT_Mult_32x32;
 
 architecture Behavioral of DFT_Mult_32x32 is
@@ -55,14 +56,14 @@ end component;
 signal Bus_A_sig,Bus_B_sig : std_logic_vector(31 downto 0);
 signal flag_move_to, count : std_logic;
 signal do,P_sig : std_logic_vector(63 downto 0);
-signal data_out,P_top,signature,Q_sig : std_logic_vector(63 downto 0);
+signal data_out,P_top : std_logic_vector(63 downto 0);
 signal Q: std_logic_vector(7 downto 0);
-
+signal Q_sig : std_logic_vector(63 downto 0);
 
 begin
-
+	flag_move_to <='0';
 	P <= P_sig;
-	Q_sig <= X"00000000000000"& Q;
+	Q_sig <= X"00000000000000" & Q;
 	Stall <= '0' when DFT_M = "00" else '1';
 	ATPG_P : ATPG 
 	port map(clk => clk, rst => rst,
