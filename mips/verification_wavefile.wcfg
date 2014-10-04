@@ -13,14 +13,32 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="14" />
-   <wvobject fp_name="/dft_mul_tb/clk" type="logic" db_ref_id="1">
+   <WVObjectSize size="19" />
+   <wvobject fp_name="/dft_mul_tb/uut/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/dft_mul_tb/rst" type="logic" db_ref_id="1">
+   <wvobject fp_name="/dft_mul_tb/uut/rst" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/uut/rst_sig1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_sig1</obj_property>
+      <obj_property name="ObjectShortName">rst_sig1</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/uut/rst_sig2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_sig2</obj_property>
+      <obj_property name="ObjectShortName">rst_sig2</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dft_mul_tb/uut/rst_sig3" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_sig3</obj_property>
+      <obj_property name="ObjectShortName">rst_sig3</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
    </wvobject>
    <wvobject fp_name="/dft_mul_tb/bus_a" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
@@ -38,9 +56,9 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="CustomSignalColor">#ff00ff</obj_property>
    </wvobject>
-   <wvobject fp_name="/dft_mul_tb/p" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">p[63:0]</obj_property>
-      <obj_property name="ObjectShortName">p[63:0]</obj_property>
+   <wvobject fp_name="/dft_mul_tb/ver_ready" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ver_ready[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ver_ready[1:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/dft_mul_tb/stall" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">stall</obj_property>
@@ -54,48 +72,46 @@
       <obj_property name="ElementShortName">clk_period</obj_property>
       <obj_property name="ObjectShortName">clk_period</obj_property>
    </wvobject>
+   <wvobject fp_name="group104" type="group">
+      <obj_property name="label">DTRM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dft_mul_tb/uut/DTRM_p/q" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">q[7:0]</obj_property>
+         <obj_property name="ObjectShortName">q[7:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
    <wvobject fp_name="group100" type="group">
       <obj_property name="label">Counter</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <wvobject fp_name="/dft_mul_tb/uut/counter_p/pre_q" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">pre_q[7:0]</obj_property>
          <obj_property name="ObjectShortName">pre_q[7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
       </wvobject>
       <wvobject fp_name="/dft_mul_tb/uut/counter_p/q" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">q[7:0]</obj_property>
          <obj_property name="ObjectShortName">q[7:0]</obj_property>
       </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/counter_p/clear" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clear</obj_property>
+         <obj_property name="ObjectShortName">clear</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/counter_p/counter_ready" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">counter_ready</obj_property>
+         <obj_property name="ObjectShortName">counter_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/counter_p/counter_ready_sig" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">counter_ready_sig</obj_property>
+         <obj_property name="ObjectShortName">counter_ready_sig</obj_property>
+      </wvobject>
       <wvobject fp_name="/dft_mul_tb/uut/counter_p/count" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">count</obj_property>
          <obj_property name="ObjectShortName">count</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group10" type="group">
-      <obj_property name="label">MULT</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_a" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
-         <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_b" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
-         <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_hi" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">bus_hi[31:0]</obj_property>
-         <obj_property name="ObjectShortName">bus_hi[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_low" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">bus_low[31:0]</obj_property>
-         <obj_property name="ObjectShortName">bus_low[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dft_mul_tb/uut/Mult/mul_out" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">mul_out[63:0]</obj_property>
-         <obj_property name="ObjectShortName">mul_out[63:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group16" type="group">
@@ -104,10 +120,18 @@
       <wvobject fp_name="/dft_mul_tb/uut/ATPG_P/addr" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">addr[6:0]</obj_property>
          <obj_property name="ObjectShortName">addr[6:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/ATPG_P/atpg_ready" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">atpg_ready</obj_property>
+         <obj_property name="ObjectShortName">atpg_ready</obj_property>
       </wvobject>
       <wvobject fp_name="/dft_mul_tb/uut/ATPG_P/do" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">do[63:0]</obj_property>
          <obj_property name="ObjectShortName">do[63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group20" type="group">
@@ -150,12 +174,594 @@
          </wvobject>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group104" type="group">
-      <obj_property name="label">DTRM</obj_property>
+   <wvobject fp_name="/dft_mul_tb/uut/LFSR_P/lfsr_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">lfsr_reg[63:0]</obj_property>
+      <obj_property name="ObjectShortName">lfsr_reg[63:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="group10" type="group">
+      <obj_property name="label">MULT</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/dft_mul_tb/uut/DTRM_p/q" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">q[7:0]</obj_property>
-         <obj_property name="ObjectShortName">q[7:0]</obj_property>
+      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_hi" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_hi[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_hi[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/Mult/bus_low" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_low[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_low[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/Mult/mul_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mul_out[63:0]</obj_property>
+         <obj_property name="ObjectShortName">mul_out[63:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group49" type="group">
+      <obj_property name="label">MISR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_in[63:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="vbus280" type="vbus" db_ref_id="1">
+         <obj_property name="label">BusB_in</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[63]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[63]</obj_property>
+            <obj_property name="ObjectShortName">data_in[63]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[62]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[62]</obj_property>
+            <obj_property name="ObjectShortName">data_in[62]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[61]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[61]</obj_property>
+            <obj_property name="ObjectShortName">data_in[61]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[60]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[60]</obj_property>
+            <obj_property name="ObjectShortName">data_in[60]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[59]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[59]</obj_property>
+            <obj_property name="ObjectShortName">data_in[59]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[58]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[58]</obj_property>
+            <obj_property name="ObjectShortName">data_in[58]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[57]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[57]</obj_property>
+            <obj_property name="ObjectShortName">data_in[57]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[56]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[56]</obj_property>
+            <obj_property name="ObjectShortName">data_in[56]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[55]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[55]</obj_property>
+            <obj_property name="ObjectShortName">data_in[55]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[54]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[54]</obj_property>
+            <obj_property name="ObjectShortName">data_in[54]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[53]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[53]</obj_property>
+            <obj_property name="ObjectShortName">data_in[53]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[52]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[52]</obj_property>
+            <obj_property name="ObjectShortName">data_in[52]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[51]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[51]</obj_property>
+            <obj_property name="ObjectShortName">data_in[51]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[50]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[50]</obj_property>
+            <obj_property name="ObjectShortName">data_in[50]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[49]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[49]</obj_property>
+            <obj_property name="ObjectShortName">data_in[49]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[48]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[48]</obj_property>
+            <obj_property name="ObjectShortName">data_in[48]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[47]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[47]</obj_property>
+            <obj_property name="ObjectShortName">data_in[47]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[46]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[46]</obj_property>
+            <obj_property name="ObjectShortName">data_in[46]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[45]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[45]</obj_property>
+            <obj_property name="ObjectShortName">data_in[45]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[44]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[44]</obj_property>
+            <obj_property name="ObjectShortName">data_in[44]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[43]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[43]</obj_property>
+            <obj_property name="ObjectShortName">data_in[43]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[42]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[42]</obj_property>
+            <obj_property name="ObjectShortName">data_in[42]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[41]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[41]</obj_property>
+            <obj_property name="ObjectShortName">data_in[41]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[40]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[40]</obj_property>
+            <obj_property name="ObjectShortName">data_in[40]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[39]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[39]</obj_property>
+            <obj_property name="ObjectShortName">data_in[39]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[38]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[38]</obj_property>
+            <obj_property name="ObjectShortName">data_in[38]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[37]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[37]</obj_property>
+            <obj_property name="ObjectShortName">data_in[37]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[36]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[36]</obj_property>
+            <obj_property name="ObjectShortName">data_in[36]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[35]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[35]</obj_property>
+            <obj_property name="ObjectShortName">data_in[35]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[34]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[34]</obj_property>
+            <obj_property name="ObjectShortName">data_in[34]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[33]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[33]</obj_property>
+            <obj_property name="ObjectShortName">data_in[33]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[32]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[32]</obj_property>
+            <obj_property name="ObjectShortName">data_in[32]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus247" type="vbus" db_ref_id="1">
+         <obj_property name="label">BusA_in</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[31]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">data_in[31]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[30]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">data_in[30]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[29]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">data_in[29]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[28]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">data_in[28]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[27]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">data_in[27]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[26]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">data_in[26]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[25]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">data_in[25]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[24]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">data_in[24]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[23]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">data_in[23]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[22]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">data_in[22]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[21]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">data_in[21]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[20]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">data_in[20]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[19]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">data_in[19]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[18]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">data_in[18]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[17]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">data_in[17]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[16]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">data_in[16]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[15]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">data_in[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[14]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">data_in[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[13]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">data_in[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[12]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">data_in[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[11]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">data_in[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[10]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">data_in[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[9]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">data_in[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[8]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">data_in[8]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[7]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">data_in[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[6]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">data_in[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[5]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">data_in[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[4]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">data_in[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[3]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">data_in[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[2]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">data_in[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[1]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">data_in[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/data_in[0]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">data_in[0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">signature[63:0]</obj_property>
+         <obj_property name="ObjectShortName">signature[63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+      </wvobject>
+      <wvobject fp_name="vbus150" type="vbus" db_ref_id="1">
+         <obj_property name="label">Signature(32-63)</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[63]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[63]</obj_property>
+            <obj_property name="ObjectShortName">signature[63]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[62]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[62]</obj_property>
+            <obj_property name="ObjectShortName">signature[62]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[61]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[61]</obj_property>
+            <obj_property name="ObjectShortName">signature[61]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[60]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[60]</obj_property>
+            <obj_property name="ObjectShortName">signature[60]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[59]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[59]</obj_property>
+            <obj_property name="ObjectShortName">signature[59]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[58]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[58]</obj_property>
+            <obj_property name="ObjectShortName">signature[58]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[57]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[57]</obj_property>
+            <obj_property name="ObjectShortName">signature[57]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[56]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[56]</obj_property>
+            <obj_property name="ObjectShortName">signature[56]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[55]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[55]</obj_property>
+            <obj_property name="ObjectShortName">signature[55]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[54]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[54]</obj_property>
+            <obj_property name="ObjectShortName">signature[54]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[53]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[53]</obj_property>
+            <obj_property name="ObjectShortName">signature[53]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[52]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[52]</obj_property>
+            <obj_property name="ObjectShortName">signature[52]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[51]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[51]</obj_property>
+            <obj_property name="ObjectShortName">signature[51]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[50]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[50]</obj_property>
+            <obj_property name="ObjectShortName">signature[50]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[49]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[49]</obj_property>
+            <obj_property name="ObjectShortName">signature[49]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[48]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[48]</obj_property>
+            <obj_property name="ObjectShortName">signature[48]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[47]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[47]</obj_property>
+            <obj_property name="ObjectShortName">signature[47]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[46]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[46]</obj_property>
+            <obj_property name="ObjectShortName">signature[46]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[45]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[45]</obj_property>
+            <obj_property name="ObjectShortName">signature[45]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[44]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[44]</obj_property>
+            <obj_property name="ObjectShortName">signature[44]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[43]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[43]</obj_property>
+            <obj_property name="ObjectShortName">signature[43]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[42]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[42]</obj_property>
+            <obj_property name="ObjectShortName">signature[42]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[41]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[41]</obj_property>
+            <obj_property name="ObjectShortName">signature[41]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[40]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[40]</obj_property>
+            <obj_property name="ObjectShortName">signature[40]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[39]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[39]</obj_property>
+            <obj_property name="ObjectShortName">signature[39]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[38]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[38]</obj_property>
+            <obj_property name="ObjectShortName">signature[38]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[37]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[37]</obj_property>
+            <obj_property name="ObjectShortName">signature[37]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[36]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[36]</obj_property>
+            <obj_property name="ObjectShortName">signature[36]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[35]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[35]</obj_property>
+            <obj_property name="ObjectShortName">signature[35]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[34]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[34]</obj_property>
+            <obj_property name="ObjectShortName">signature[34]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[33]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[33]</obj_property>
+            <obj_property name="ObjectShortName">signature[33]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[32]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[32]</obj_property>
+            <obj_property name="ObjectShortName">signature[32]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus117" type="vbus" db_ref_id="1">
+         <obj_property name="label">Signature(0-31)</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[31]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">signature[31]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[30]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">signature[30]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[29]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">signature[29]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[28]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">signature[28]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[27]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">signature[27]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[26]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">signature[26]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[25]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">signature[25]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[24]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">signature[24]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[23]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">signature[23]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[22]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">signature[22]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[21]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">signature[21]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[20]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">signature[20]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[19]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">signature[19]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[18]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">signature[18]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[17]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">signature[17]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[16]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">signature[16]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[15]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">signature[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[14]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">signature[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[13]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">signature[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[12]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">signature[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[11]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">signature[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[10]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">signature[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[9]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">signature[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[8]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">signature[8]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[7]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">signature[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[6]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">signature[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[5]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">signature[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[4]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">signature[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[3]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">signature[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[2]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">signature[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[1]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">signature[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dft_mul_tb/uut/MISR_p/signature[0]" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">signature[0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/dft_mul_tb/uut/MISR_p/lfsr_reg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">lfsr_reg[63:0]</obj_property>
+         <obj_property name="ObjectShortName">lfsr_reg[63:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

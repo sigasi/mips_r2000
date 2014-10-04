@@ -6,6 +6,7 @@ use ieee.std_logic_unsigned.all;
 --ROM memory including the vectors for ATPG method
 entity ATPG is
 	port( clk,rst : in std_logic;
+			atpg_ready : out std_logic;
 			do : out std_logic_vector(63 downto 0));
 end ATPG;
 
@@ -116,17 +117,26 @@ begin
 --			end if;
 		end if;
 	end process;
+	
+	
 	process(clk)
 	begin
+--		if(atpg_ready='1') then
+--			addr<= "0000000";
+--			atpg_ready<='0';
+--		end if;
 		if(rising_edge(clk))then
 			if(rst = '1') then
 				addr <= "0000000";
 			else
-				addr <= addr + "0000001";
+				if( addr <"01010111")then
+					addr <= addr + "0000001";
+				end if;
 			end if;
 		end if;
 	
 	end process;
+	atpg_ready <= '1' when addr = "01010111" else '0';
 	
 
 end Behavioral;
