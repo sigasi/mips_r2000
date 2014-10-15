@@ -12,9 +12,8 @@ end ATPG;
 
 architecture Behavioral of ATPG is
 
-type ROM is array (0 to 88) of std_logic_vector(63 downto 0);
-signal mem : Rom := ("0000000000000000000000000000000000000000000000000000000000000000",
-							"0100001000001110001001001000000000000000000001100000000000000100",           --ATPG VECTORS FOR TESTING
+type ROM is array (0 to 87) of std_logic_vector(63 downto 0);
+signal mem : Rom := ("0100001000001110001001001000000000000000000001100000000000000100",           --ATPG VECTORS FOR TESTING
 							"0100110110110101001001001001000010111001010111000000000000000111",
                      "0111110101000100000001001110000010001111010100101000011000001000",
 							"0010010110110000001001000001000011010001111011000000000010110010",	
@@ -110,6 +109,12 @@ begin
 	begin
 		if(rising_edge(clk))then
 			do <= mem( to_integer(unsigned(addr)));
+			
+--			if(rst = '1') then
+--				addr <= "0000";
+--			else
+--				addr <= addr + "0001";
+--			end if;
 		end if;
 	end process;
 	
@@ -124,15 +129,14 @@ begin
 			if(rst = '1') then
 				addr <= "0000000";
 			else
-				if( addr < "1011000")then
+				if( addr <"01010111")then
 					addr <= addr + "0000001";
 				end if;
 			end if;
 		end if;
 	
 	end process;
-	
-	atpg_ready <= '1' when addr = "1011000" else '0';
+	atpg_ready <= '1' when addr = "01010111" else '0';
 	
 
 end Behavioral;

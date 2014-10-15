@@ -1,0 +1,33 @@
+
+ 3c161800 	lui	$s6,0x1800
+ 36d60002 	ori	$s6,$s6,0x2
+ 21080058 	addi	$t0,$t0,88
+ 8ce10000 	lw	$at,0($a3)
+ 20e70004 	addi	$a3,$a3,4
+ 8ce20000 	lw	$v0,0($a3)
+ 20e70004 	addi	$a3,$a3,4
+ 00220018 	mult	$at,$v0
+ 00002012 	mflo	$a0
+ 00002810 	mfhi	$a1
+ 00858826 	xor	$s1,$a0,$a1		
+ 0800000f 	j	0x00000044		changed with j MISR
+
+ 2108ffff 	addi	$t0,$t0,-1
+ 1d00fff5 	bgtz	$t0,0x0000000c
+ 08000017 	j	0x00000064
+
+ 0017c7c0	sll	$t8,$s7,$ra
+ 0018cfc3 	sra	$t9,$t8,$ra
+ 0336c824 	and	$t9,$t9,$s6
+ 02f9b826 	xor	$s7,$s7,$t9
+ 0017b842 	srl	$s7,$s7,0x1
+ 02f8b821 	addu	$s7,$s7,$t8
+ 02f1b826 	xor	$s7,$s7,$s1
+
+ 0800000c	j	$ra
+
+ 3c0a8091 	lui	$t2,0x8091
+ 214a5281 	addi	$t2,$t2,21121
+
+ 15570001 	bne	$t2,$s7,0x00000070
+ 358c0001 	ori	$t4,$t4,0x1
