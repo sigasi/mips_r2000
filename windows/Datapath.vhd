@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity Datapath is
-	port( clk,rst : in std_logic;
+	port( clk,rst,load : in std_logic;
 			Bus_A_test,Bus_B_test : out std_logic_vector(31 downto 0);
 			PC_write,sel_ext,Reg_Write,Reg_Imm,Dmem_write : in std_logic;
 			ALU_op : in std_logic_vector(3 downto 0);
@@ -16,7 +16,8 @@ entity Datapath is
 			seed  : in std_logic_vector(63 downto 0);
 			ver_ready : out std_logic;
 			Stall : out std_logic;
-			PassFail : out std_logic);
+			PassFail : out std_logic;
+			errorflag : out std_logic);
 end Datapath;
 
 architecture Behavioral of Datapath is
@@ -63,14 +64,15 @@ end component;
 component DMcontrol 
 	port( ALUout : in std_logic_vector(12 downto 0);
 			MDRin : in std_logic_vector(31 downto 0);
-			DatatoDM : out std_logic_vector(31 downto 0);
+			DatatoDM : out std_logic_vector(37 downto 0);
 			WE : out std_logic_vector(3 downto 0);
 			Bus_DMA : out std_logic_vector(10 downto 0);
-			DatafromDM : in std_logic_vector(31 downto 0);
+			DatafromDM : in std_logic_vector(37 downto 0);
 			MDRout : out std_logic_vector(31 downto 0);
 			E : out std_logic;
-			Dmem_write : in std_logic;
-			opcode : in std_logic_vector(5 downto 0));
+			Dmem_write, load : in std_logic;
+			opcode : in std_logic_vector(5 downto 0);
+			errorflag : out std_logic);
 end component;
 
 component imem 
@@ -86,8 +88,8 @@ port (clk : in std_logic;
 		en  : in std_logic_vector(3 downto 0);
 		ssr : in std_logic_vector(3 downto 0);
 		address   : in std_logic_vector(10 downto 0); 
-		data_in : in std_logic_vector(31 downto 0);
-		data_out : out std_logic_vector(31 downto 0));
+		data_in : in std_logic_vector(37 downto 0);
+		data_out : out std_logic_vector(37 downto 0));
 end component; 
 
 component Extension
@@ -132,16 +134,22 @@ port(Zero, Ne : in std_logic;
 			 SEL_sig : in std_logic_vector(3 downto 0);
 			 sel_NPC : out std_logic_vector(1 downto 0));
 end component;
+
+component Rom_verif 
+	port(	clk,load : in std_logic;
+			dout : out std_logic_vector(31 downto 0));
+end component;
 --===========================================================================
 signal WE,opcode,regP : std_logic_vector(3 downto 0);
 signal regN,regALU_out : std_logic_vector(31 downto 0);
 signal zero,Ne,overflow,E,Stall_sig : std_logic;
 signal EXT_out,ALU_out,Bus_IMA,npcmux_out : std_logic_vector(31 downto 0);
-signal DatatoDM,DatafromDM,MDRout,regD : std_logic_vector(31 downto 0);
+signal MDRout,regD : std_logic_vector(31 downto 0);
+signal DatatoDM,DatafromDM : std_logic_vector(37 downto 0);
 signal regI,regA,regB,regHi,regLow,regZero,regNe : std_logic_vector(31 downto 0);
-signal MDRin,inc_out,SL2_out,regM : std_logic_vector(31 downto 0);
+signal MDRin,inc_out,SL2_out,regM,DatatoDM_control : std_logic_vector(31 downto 0);
 signal Bus_hi,Bus_low,Bus_IMD,data_out,PSD : std_logic_vector(31 downto 0);
-signal Bus_A,Bus_B,Bus_W,ALUmux_out : std_logic_vector(31 downto 0);
+signal Bus_A,Bus_B,Bus_W,ALUmux_out, Rom_verif_dout : std_logic_vector(31 downto 0);
 signal status_reg_in,status_reg_out : std_logic_vector(3 downto 0);
 signal Bus_DMA : std_logic_vector(10 downto 0);
 signal Not_Stall : std_logic;
@@ -236,9 +244,16 @@ regAlu_out_u : reg generic map(w=>32)port map(clk=>clk,rst=>rst,en=>Not_Stall,di
 --========================MEMORY WRITE==================================
 MDRin_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>Not_Stall,di=>regB,do=>MDRin);
 	
+	Rom_load :Rom_verif 
+	port map(clk => clk,load => load,
+				dout =>Rom_verif_dout);
+	
+	DatatoDM_control <= MDRin when load ='0' else Rom_verif_dout;
+	
+	
 	DMcontr : DMcontrol 
 	port map( ALUout => regALU_out(12 downto 0),
-				MDRin => MDRin,
+				MDRin => DatatoDM_control,
 				DatatoDM => DatatoDM,
 				WE => WE, 						-- COMES FROM CU(3 downto 0);
 				Bus_DMA => Bus_DMA,
@@ -246,7 +261,9 @@ MDRin_unit : reg generic map(w=>32) port map(clk=>clk,rst=>rst,en=>Not_Stall,di=
 				MDRout => MDRout,				
 				E => E,
 				Dmem_write => Dmem_write,
-				opcode => Bus_IMD(31 downto 26));			
+				load => load,
+				opcode => Bus_IMD(31 downto 26),
+				errorflag => errorflag);			
 	
 	dmem_p : dmem 
 	port map(clk => clk,

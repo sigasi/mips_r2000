@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Chris/mipsR2000/verif_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="verif_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/verif_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/bus_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/bus_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/dft_m" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dft_m[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dft_m[1:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/seed" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">seed[63:0]</obj_property>
+      <obj_property name="ObjectShortName">seed[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/ver_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ver_ready</obj_property>
+      <obj_property name="ObjectShortName">ver_ready</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/p" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">p[63:0]</obj_property>
+      <obj_property name="ObjectShortName">p[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/stall" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">stall</obj_property>
+      <obj_property name="ObjectShortName">stall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/passfail" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">passfail</obj_property>
+      <obj_property name="ObjectShortName">passfail</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/uut/signature_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">signature_reg[63:0]</obj_property>
+      <obj_property name="ObjectShortName">signature_reg[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#808000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/verif_tb/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="group13" type="group">
+      <obj_property name="label">ATPG</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/verif_tb/uut/ATPG_P/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/verif_tb/uut/ATPG_P/addr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addr[6:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[6:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/verif_tb/uut/ATPG_P/atpg_ready" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">atpg_ready</obj_property>
+         <obj_property name="ObjectShortName">atpg_ready</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/verif_tb/uut/ATPG_P/do" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">do[63:0]</obj_property>
+         <obj_property name="ObjectShortName">do[63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group36" type="group">
+      <obj_property name="label">LFSR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/verif_tb/uut/LFSR_P/seed" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">seed[63:0]</obj_property>
+         <obj_property name="ObjectShortName">seed[63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/verif_tb/uut/LFSR_P/rdy" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rdy</obj_property>
+         <obj_property name="ObjectShortName">rdy</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/verif_tb/uut/LFSR_P/cnt" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">cnt</obj_property>
+         <obj_property name="ObjectShortName">cnt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/verif_tb/uut/LFSR_P/data_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_out[63:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out[63:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group50" type="group">
+      <obj_property name="label">DTRM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="group46" type="group">
+         <obj_property name="label">DTRM</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/verif_tb/uut/DTRM_p/q" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">q[7:0]</obj_property>
+            <obj_property name="ObjectShortName">q[7:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#800080</obj_property>
+         </wvobject>
+         <wvobject fp_name="/verif_tb/uut/DTRM_p/p_top" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">p_top[63:0]</obj_property>
+            <obj_property name="ObjectShortName">p_top[63:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/verif_tb/uut/DTRM_p/q_signal" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">q_signal[7:0]</obj_property>
+            <obj_property name="ObjectShortName">q_signal[7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="group58" type="group">
+            <obj_property name="label">Counter</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/verif_tb/uut/counter_p/clear" type="logic" db_ref_id="1">
+               <obj_property name="ElementShortName">clear</obj_property>
+               <obj_property name="ObjectShortName">clear</obj_property>
+            </wvobject>
+            <wvobject fp_name="/verif_tb/uut/counter_p/count" type="logic" db_ref_id="1">
+               <obj_property name="ElementShortName">count</obj_property>
+               <obj_property name="ObjectShortName">count</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">#00ffff</obj_property>
+            </wvobject>
+            <wvobject fp_name="/verif_tb/uut/counter_p/counter_ready" type="logic" db_ref_id="1">
+               <obj_property name="ElementShortName">counter_ready</obj_property>
+               <obj_property name="ObjectShortName">counter_ready</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+            </wvobject>
+            <wvobject fp_name="/verif_tb/uut/counter_p/q" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">q[7:0]</obj_property>
+               <obj_property name="ObjectShortName">q[7:0]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/verif_tb/uut/counter_p/pre_q" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">pre_q[7:0]</obj_property>
+               <obj_property name="ObjectShortName">pre_q[7:0]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/verif_tb/uut/counter_p/counter_ready_sig" type="logic" db_ref_id="1">
+               <obj_property name="ElementShortName">counter_ready_sig</obj_property>
+               <obj_property name="ObjectShortName">counter_ready_sig</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">#00ffff</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group17" type="group">
+      <obj_property name="label">MISR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/verif_tb/uut/MISR_p/reset" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">reset</obj_property>
+         <obj_property name="ObjectShortName">reset</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/verif_tb/uut/MISR_p/data_in" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_in[63:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/verif_tb/uut/MISR_p/signature" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">signature[63:0]</obj_property>
+         <obj_property name="ObjectShortName">signature[63:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/verif_tb/uut/rst_intern" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst_intern</obj_property>
+         <obj_property name="ObjectShortName">rst_intern</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group42" type="group">
+      <obj_property name="label">Multiplier</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/verif_tb/uut/Mult/bus_a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/verif_tb/uut/Mult/bus_b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

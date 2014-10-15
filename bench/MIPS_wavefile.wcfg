@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Chris/mipsR2000/MIPSr2000_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="mipsr2000_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="textio" />
+            <top_module name="vcomponents" />
+            <top_module name="vital_primitives" />
+            <top_module name="vital_timing" />
+            <top_module name="vpkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="31" />
+   <wave_markers>
+      <marker time="652678293000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/mipsr2000_tb/uut/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/dft_m" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dft_m[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dft_m[1:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/bus_a_test" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_a_test[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_a_test[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/bus_b_test" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_b_test[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_b_test[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/bus_w_test" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_w_test[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_w_test[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/tb_reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tb_reset</obj_property>
+      <obj_property name="ObjectShortName">tb_reset</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/tb_clock" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tb_clock</obj_property>
+      <obj_property name="ObjectShortName">tb_clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/dft_m" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dft_m[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dft_m[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/seed" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">seed[63:0]</obj_property>
+      <obj_property name="ObjectShortName">seed[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/ver_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ver_ready</obj_property>
+      <obj_property name="ObjectShortName">ver_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/passfail" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">passfail</obj_property>
+      <obj_property name="ObjectShortName">passfail</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider194" type="divider">
+      <obj_property name="label">Datapath</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="group49" type="group">
+      <obj_property name="label">Datapath</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/stall_sig" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">stall_sig</obj_property>
+         <obj_property name="ObjectShortName">stall_sig</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/stall" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">stall</obj_property>
+         <obj_property name="ObjectShortName">stall</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/not_stall" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">not_stall</obj_property>
+         <obj_property name="ObjectShortName">not_stall</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#808080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group54" type="group">
+      <obj_property name="label">CU</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/CU_unit/stall" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">stall</obj_property>
+         <obj_property name="ObjectShortName">stall</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/CU_unit/notstall" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">notstall</obj_property>
+         <obj_property name="ObjectShortName">notstall</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/CU_unit/pc_write" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">pc_write</obj_property>
+         <obj_property name="ObjectShortName">pc_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/CU_unit/pc_write_sig" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">pc_write_sig</obj_property>
+         <obj_property name="ObjectShortName">pc_write_sig</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group61" type="group">
+      <obj_property name="label">REG_PC</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regPC_unit/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regPC_unit/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regPC_unit/en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en</obj_property>
+         <obj_property name="ObjectShortName">en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regPC_unit/di" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">di[31:0]</obj_property>
+         <obj_property name="ObjectShortName">di[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regPC_unit/do" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">do[31:0]</obj_property>
+         <obj_property name="ObjectShortName">do[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regPC_unit/w" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">w</obj_property>
+         <obj_property name="ObjectShortName">w</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group70" type="group">
+      <obj_property name="label">IMEM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/Imem_p/en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en</obj_property>
+         <obj_property name="ObjectShortName">en</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/Imem_p/address" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">address[10:0]</obj_property>
+         <obj_property name="ObjectShortName">address[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/Imem_p/data_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out[31:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/Imem_p/sl" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sl[3:0]</obj_property>
+         <obj_property name="ObjectShortName">sl[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/Imem_p/do_internal" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">do_internal[0:3]</obj_property>
+         <obj_property name="ObjectShortName">do_internal[0:3]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/CU_unit/current_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/bus_ima" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_ima[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_ima[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/DMcontr/bus_dma" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bus_dma[10:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_dma[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group85" type="group">
+      <obj_property name="label">RF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">regfile_coff[0:31]</obj_property>
+         <obj_property name="ObjectShortName">regfile_coff[0:31]</obj_property>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[0]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[1]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[1]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#c0c0c0</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[2]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[2]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#c0c0c0</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[3]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[3]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#800000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[4]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[4]</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#808080</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[5]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[5]</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#808080</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[6]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[6]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[7]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[7]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#c0c0c0</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[8]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[8]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#00ffff</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[9]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[10]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[10]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#008080</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[11]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[11]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[12]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[12]</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ff0000</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[13]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[14]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[15]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[16]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[16]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[17]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[17]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[18]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[18]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[19]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[19]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[20]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[20]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#c0c0c0</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[21]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[21]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[22]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[22]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[23]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[23]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#a0a0a4</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[24]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[24]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[25]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[25]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[26]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[26]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[27]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[27]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[28]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[28]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[29]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[29]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[30]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[30]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/regfile_coff[31]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">regfile_coff[31]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#008080</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/addr_in" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addr_in[4:0]</obj_property>
+         <obj_property name="ObjectShortName">addr_in[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/addr_in2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addr_in2[4:0]</obj_property>
+         <obj_property name="ObjectShortName">addr_in2[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/rs" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rs[4:0]</obj_property>
+         <obj_property name="ObjectShortName">rs[4:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/rt" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rt[4:0]</obj_property>
+         <obj_property name="ObjectShortName">rt[4:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/rd" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rd[4:0]</obj_property>
+         <obj_property name="ObjectShortName">rd[4:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/branchzero_flag" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">branchzero_flag</obj_property>
+         <obj_property name="ObjectShortName">branchzero_flag</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/RF/reg32_flag" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">reg32_flag</obj_property>
+         <obj_property name="ObjectShortName">reg32_flag</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group209" type="group">
+      <obj_property name="label">ALU_out</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regAlu_out_u/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regAlu_out_u/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regAlu_out_u/en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en</obj_property>
+         <obj_property name="ObjectShortName">en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regAlu_out_u/di" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">di[31:0]</obj_property>
+         <obj_property name="ObjectShortName">di[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regAlu_out_u/do" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">do[31:0]</obj_property>
+         <obj_property name="ObjectShortName">do[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regAlu_out_u/w" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">w</obj_property>
+         <obj_property name="ObjectShortName">w</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group92" type="group">
+      <obj_property name="label">regA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regA_unit/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regA_unit/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regA_unit/en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en</obj_property>
+         <obj_property name="ObjectShortName">en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regA_unit/di" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">di[31:0]</obj_property>
+         <obj_property name="ObjectShortName">di[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regA_unit/do" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">do[31:0]</obj_property>
+         <obj_property name="ObjectShortName">do[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regA_unit/w" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">w</obj_property>
+         <obj_property name="ObjectShortName">w</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group99" type="group">
+      <obj_property name="label">regB</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regB_unit/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regB_unit/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regB_unit/en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en</obj_property>
+         <obj_property name="ObjectShortName">en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regB_unit/di" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">di[31:0]</obj_property>
+         <obj_property name="ObjectShortName">di[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regB_unit/do" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">do[31:0]</obj_property>
+         <obj_property name="ObjectShortName">do[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regB_unit/w" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">w</obj_property>
+         <obj_property name="ObjectShortName">w</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group26" type="group">
+      <obj_property name="label">ALU</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/bus_a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/bus_b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/alu_op" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">alu_op[3:0]</obj_property>
+         <obj_property name="ObjectShortName">alu_op[3:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/flag_move_to" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">flag_move_to</obj_property>
+         <obj_property name="ObjectShortName">flag_move_to</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/alu_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">alu_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">alu_out[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/bus_hi" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_hi[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_hi[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/bus_low" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bus_low[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bus_low[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/seed" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">seed[63:0]</obj_property>
+         <obj_property name="ObjectShortName">seed[63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/ver_ready" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ver_ready</obj_property>
+         <obj_property name="ObjectShortName">ver_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/stall" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">stall</obj_property>
+         <obj_property name="ObjectShortName">stall</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/passfail" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">passfail</obj_property>
+         <obj_property name="ObjectShortName">passfail</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group106" type="group">
+      <obj_property name="label">Hi_reg</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regHi_unit/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regHi_unit/en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en</obj_property>
+         <obj_property name="ObjectShortName">en</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regHi_unit/di" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">di[31:0]</obj_property>
+         <obj_property name="ObjectShortName">di[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regHi_unit/do" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">do[31:0]</obj_property>
+         <obj_property name="ObjectShortName">do[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group113" type="group">
+      <obj_property name="label">Low_reg</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regLow_unit/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regLow_unit/en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en</obj_property>
+         <obj_property name="ObjectShortName">en</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regLow_unit/di" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">di[31:0]</obj_property>
+         <obj_property name="ObjectShortName">di[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/regLow_unit/do" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">do[31:0]</obj_property>
+         <obj_property name="ObjectShortName">do[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/DMcontr/mdrout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mdrout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mdrout[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="group177" type="group">
+      <obj_property name="label">Dmem</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/dmem_p/we" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">we[3:0]</obj_property>
+         <obj_property name="ObjectShortName">we[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/dmem_p/en" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">en[3:0]</obj_property>
+         <obj_property name="ObjectShortName">en[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/dmem_p/ssr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">ssr[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ssr[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/dmem_p/address" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">address[10:0]</obj_property>
+         <obj_property name="ObjectShortName">address[10:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/dmem_p/data_in" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_in[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/dmem_p/data_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out[31:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#a0a0a4</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="divider182" type="divider">
+         <obj_property name="label">Verification</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="BkColor">128 128 255</obj_property>
+         <obj_property name="TextColor">230 230 230</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group156" type="group">
+      <obj_property name="label">Verification</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="group201" type="group">
+         <obj_property name="label">MUltiplier</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/Mult/bus_a" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">bus_a[31:0]</obj_property>
+            <obj_property name="ObjectShortName">bus_a[31:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/Mult/bus_b" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">bus_b[31:0]</obj_property>
+            <obj_property name="ObjectShortName">bus_b[31:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/Mult/mul_out" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">mul_out[63:0]</obj_property>
+            <obj_property name="ObjectShortName">mul_out[63:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#808000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/Mult/bus_hi" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">bus_hi[31:0]</obj_property>
+            <obj_property name="ObjectShortName">bus_hi[31:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ffff00</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/Mult/bus_low" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">bus_low[31:0]</obj_property>
+            <obj_property name="ObjectShortName">bus_low[31:0]</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ffff00</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/Mult/flag_move_to" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">flag_move_to</obj_property>
+            <obj_property name="ObjectShortName">flag_move_to</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#00ffff</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/Mult/bus_low" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">bus_low[31:0]</obj_property>
+            <obj_property name="ObjectShortName">bus_low[31:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group181" type="group">
+         <obj_property name="label">DFT_MUL32x32</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/passfail" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">passfail</obj_property>
+            <obj_property name="ObjectShortName">passfail</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#00ffff</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/rst" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">rst</obj_property>
+            <obj_property name="ObjectShortName">rst</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/dft_m" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">dft_m[1:0]</obj_property>
+            <obj_property name="ObjectShortName">dft_m[1:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/ver_ready" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">ver_ready</obj_property>
+            <obj_property name="ObjectShortName">ver_ready</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group119" type="group">
+         <obj_property name="label">ATPG</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/ATPG_P/rst" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">rst</obj_property>
+            <obj_property name="ObjectShortName">rst</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#00ffff</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/ATPG_P/atpg_ready" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">atpg_ready</obj_property>
+            <obj_property name="ObjectShortName">atpg_ready</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#00ffff</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/ATPG_P/do" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">do[63:0]</obj_property>
+            <obj_property name="ObjectShortName">do[63:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/ATPG_P/mem" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">mem[0:88]</obj_property>
+            <obj_property name="ObjectShortName">mem[0:88]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/ATPG_P/addr" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">addr[6:0]</obj_property>
+            <obj_property name="ObjectShortName">addr[6:0]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group131" type="group">
+         <obj_property name="label">LFSR</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/LFSR_P/reset" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">reset</obj_property>
+            <obj_property name="ObjectShortName">reset</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#00ffff</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/LFSR_P/seed" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">seed[63:0]</obj_property>
+            <obj_property name="ObjectShortName">seed[63:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/LFSR_P/data_out" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">data_out[63:0]</obj_property>
+            <obj_property name="ObjectShortName">data_out[63:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/LFSR_P/rdy" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">rdy</obj_property>
+            <obj_property name="ObjectShortName">rdy</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/LFSR_P/cnt" type="other" db_ref_id="1">
+            <obj_property name="ElementShortName">cnt</obj_property>
+            <obj_property name="ObjectShortName">cnt</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group142" type="group">
+         <obj_property name="label">DTRM</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group150" type="group">
+            <obj_property name="label">Counter</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/counter_p/clock" type="logic" db_ref_id="1">
+               <obj_property name="ElementShortName">clock</obj_property>
+               <obj_property name="ObjectShortName">clock</obj_property>
+            </wvobject>
+            <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/counter_p/clear" type="logic" db_ref_id="1">
+               <obj_property name="ElementShortName">clear</obj_property>
+               <obj_property name="ObjectShortName">clear</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">#00ffff</obj_property>
+            </wvobject>
+            <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/counter_p/count" type="logic" db_ref_id="1">
+               <obj_property name="ElementShortName">count</obj_property>
+               <obj_property name="ObjectShortName">count</obj_property>
+            </wvobject>
+            <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/counter_p/counter_ready" type="logic" db_ref_id="1">
+               <obj_property name="ElementShortName">counter_ready</obj_property>
+               <obj_property name="ObjectShortName">counter_ready</obj_property>
+            </wvobject>
+            <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/counter_p/q" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">q[7:0]</obj_property>
+               <obj_property name="ObjectShortName">q[7:0]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/counter_p/pre_q" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">pre_q[7:0]</obj_property>
+               <obj_property name="ObjectShortName">pre_q[7:0]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/counter_p/counter_ready_sig" type="logic" db_ref_id="1">
+               <obj_property name="ElementShortName">counter_ready_sig</obj_property>
+               <obj_property name="ObjectShortName">counter_ready_sig</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/DTRM_p/q" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">q[7:0]</obj_property>
+            <obj_property name="ObjectShortName">q[7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/DTRM_p/qb_signal" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">qb_signal[31:0]</obj_property>
+            <obj_property name="ObjectShortName">qb_signal[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/DTRM_p/qa_signal" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">qa_signal[31:0]</obj_property>
+            <obj_property name="ObjectShortName">qa_signal[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/DTRM_p/q_signal" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">q_signal[7:0]</obj_property>
+            <obj_property name="ObjectShortName">q_signal[7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/DTRM_p/p_top" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">p_top[63:0]</obj_property>
+            <obj_property name="ObjectShortName">p_top[63:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group155" type="group">
+         <obj_property name="label">MISR</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/MISR_p/reset" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">reset</obj_property>
+            <obj_property name="ObjectShortName">reset</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#00ffff</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/MISR_p/data_in" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">data_in[63:0]</obj_property>
+            <obj_property name="ObjectShortName">data_in[63:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/MISR_p/signature" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">signature[63:0]</obj_property>
+            <obj_property name="ObjectShortName">signature[63:0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">#a0a0a4</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/ALU_p/DFT/MISR_p/lfsr_reg" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">lfsr_reg[63:0]</obj_property>
+            <obj_property name="ObjectShortName">lfsr_reg[63:0]</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group192" type="group">
+      <obj_property name="label">EXT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/EXT_p/datain" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">datain[15:0]</obj_property>
+         <obj_property name="ObjectShortName">datain[15:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/EXT_p/sel_ext" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sel_ext</obj_property>
+         <obj_property name="ObjectShortName">sel_ext</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/EXT_p/dataout" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dataout[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dataout[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mipsr2000_tb/uut/Datapath_unit/EXT_p/intern_sig" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">intern_sig[31:0]</obj_property>
+         <obj_property name="ObjectShortName">intern_sig[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

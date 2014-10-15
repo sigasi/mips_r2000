@@ -3,18 +3,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity MIPS_r2000 is
+	generic(flag_dload : std_logic := '0');
 	port(clk,rst : in std_logic;
 		DFT_M : in std_logic_vector(1 downto 0);	--if DFT_M 00 work else zero the sel sigs
 		Bus_A_test,Bus_B_test,Bus_W_test : out std_logic_vector(31 downto 0);
 		seed  : in std_logic_vector(63 downto 0);
 		ver_ready : out std_logic;
-		PassFail : out std_logic);
+		PassFail : out std_logic;
+		errorflag : out std_logic);
 end MIPS_r2000;
 
 
 architecture Behavioral of MIPS_r2000 is
 component Datapath 
-	port( clk,rst : in std_logic;
+	port( clk,rst,load : in std_logic;
 			Bus_A_test,Bus_B_test : out std_logic_vector(31 downto 0);
 			PC_write,sel_ext,Reg_Write,Reg_Imm,Dmem_write : in std_logic;
 			ALU_op : in std_logic_vector(3 downto 0);
@@ -27,10 +29,11 @@ component Datapath
 			seed  : in std_logic_vector(63 downto 0);
 			ver_ready : out std_logic;
 			Stall : out std_logic;
-			PassFail : out std_logic);
+			PassFail,errorflag : out std_logic);
 end component;
 
 component ControlUnit
+	generic(flag_dload : std_logic);
 	port(clk,rst : in std_logic;
 		  instruction : in std_logic_vector(31 downto 0);
 		  Stall : in std_logic;
@@ -38,7 +41,7 @@ component ControlUnit
 		  ALU_op : out std_logic_vector(3 downto 0);
 		  Reg_write,Dmem_write,PC_write : out std_logic;
 		  sel_HiLow : out std_logic_vector(1 downto 0);
-		  sv,lui_sig,ne_eq,j_jal_flag : out std_logic;
+		  sv,lui_sig,ne_eq,j_jal_flag,load : out std_logic;
 		  SEL_sig : out std_logic_vector(3 downto 0);
 		  Branchzero_flag,Reg32_flag,en_Hi,en_Low : out std_logic);
 end component;
@@ -49,7 +52,7 @@ signal ALU_op : std_logic_vector(3 downto 0);
 signal sv,lui_sig,jump,Branch,ne_eq,j_jal_flag : std_logic;
 signal Branchzero_flag,Reg32_flag,en_Hi,en_Low,Link,DM_ALU : std_logic;
 signal Bus_IMD_out : std_logic_vector(31 downto 0);
-signal Stall : std_logic;
+signal Stall,load : std_logic;
 signal SEL_sig : std_logic_vector(3 downto 0);
 begin
 
@@ -57,6 +60,7 @@ begin
 		port map(
 			clk             => clk,
 			rst             => rst,
+			load				 => load,
 			Bus_A_test      => Bus_A_test,
 			Bus_B_test      => Bus_B_test,
 			PC_write        => PC_write,
@@ -85,9 +89,11 @@ begin
 			seed 				 => seed,
 			ver_ready 		 =>ver_ready,
 			Stall				 => Stall,
-			PassFail			 => PassFail);
+			PassFail			 => PassFail,
+			errorflag 		 => errorflag);
 			
 		CU_unit :  ControlUnit
+		generic map(flag_dload =>  flag_dload)
 		port map(
 			clk             => clk,
 			rst             => rst,
@@ -108,6 +114,7 @@ begin
 			lui_sig         => lui_sig,
 			ne_eq           => ne_eq,
 			j_jal_flag      => j_jal_flag,
+			load            => load,
 			SEL_sig => SEL_sig,
 			Branchzero_flag => Branchzero_flag,
 			Reg32_flag      => Reg32_flag,

@@ -1,0 +1,58 @@
+
+lfsr:     file format elf32-bigmips
+
+
+ 3c161800 	lui	$s6,0x1800
+ 36d60002 	ori	$s6,$s6,0x2
+
+ 3c010000 	lui	$at,0x0
+ 20210001 	addi	$at,$at,1
+ 214a001e 	addi	$t2,$t2,30
+
+ 30230001 	andi	$v1,$at,0x1
+ 30240002 	andi	$a0,$at,0x2
+ 30250008 	andi	$a1,$at,0x8
+ 30260010 	andi	$a2,$at,0x10
+
+ 00042042 	srl	$a0,$a0,0x1
+ 000528c2 	srl	$a1,$a1,0x3
+ 00063102 	srl	$a2,$a2,0x4
+
+ 00641826 	xor	$v1,$v1,$a0
+ 00a62826 	xor	$a1,$a1,$a2
+ 00651826 	xor	$v1,$v1,$a1
+
+ 00021040 	sll	$v0,$v0,0x1
+ 03e17806 	srlv	$t7,$at,$ra
+ 00010840 	sll	$at,$at,0x1
+
+ 00230825 	or	$at,$at,$v1
+ 004f1025 	or	$v0,$v0,$t7
+
+ 00220018 	mult	$at,$v0
+ 00009012 	mflo	$s2
+ 00009810 	mfhi	$s3
+
+ 02538826 	xor	$s1,$s2,$s3
+
+ 0800001c 	j	0x00000000 sto sll
+26 214affff 	addi	$t2,$t2,-1
+ 1d40ffea 	bgtz	$t2,0x00000014
+
+ 08000024 	j	0x00000098
+
+29 0017c7c0	sll	$t8,$s7,$ra
+ 0018cfc3 	sra	$t9,$t8,$ra
+ 0336c824 	and	$t9,$t9,$s6
+ 02f9b826 	xor	$s7,$s7,$t9
+ 0017b842 	srl	$s7,$s7,0x1
+ 02f8b821 	addu	$s7,$s7,$t8
+ 02f1b826 	xor	$s7,$s7,$s1
+
+ 08000019	j	$ra
+
+37 3c0a0aaa 	lui	$t2,0x8091
+ 2294a0d8 	addi	$t2,$t2,21121
+
+ 16970002 	bne	$t2,$s7,0x00000070
+ 358c0001 	ori	$t4,$t4,0x1

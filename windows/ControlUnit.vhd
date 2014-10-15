@@ -3,6 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity ControlUnit is
+	generic(flag_dload : std_logic := '0');
 	port(clk,rst : in std_logic;
 		  instruction : in std_logic_vector(31 downto 0);
 		  Stall : in std_logic;
@@ -10,7 +11,7 @@ entity ControlUnit is
 		  ALU_op : out std_logic_vector(3 downto 0);
 		  Reg_write,Dmem_write,PC_write : out std_logic;
 		  sel_HiLow : out std_logic_vector(1 downto 0);
-		  sv,lui_sig,ne_eq,j_jal_flag : out std_logic;
+		  sv,lui_sig,ne_eq,j_jal_flag,load : out std_logic;
 		  SEL_sig : out std_logic_vector(3 downto 0);
 		  Branchzero_flag,Reg32_flag,en_Hi,en_Low : out std_logic);
 end ControlUnit;
@@ -75,17 +76,17 @@ architecture Behavioral of ControlUnit is
 	constant JAL : std_logic_vector(5 downto 0)   := "000011";
 -----------------------------------------------------------------------------------	
 
-	signal RegImm_sig, branch_sig,NotStall : std_logic;
+	signal RegImm_sig, branch_sig : std_logic;
 	signal aluop1,aluop2 : std_logic_vector (3 downto 0);
 	signal opcode : std_logic_vector(5 downto 0);
 	signal func : std_logic_vector(5 downto 0);
-	type state_type is (Instr_fetch,instr_decode,execution,memory,execution_wb,mem_wb,write_back);
+	type state_type is (Load_state,Instr_fetch,instr_decode,execution,memory,execution_wb,mem_wb,write_back);
 	signal current_state,next_state : state_type;
 	signal rt : std_logic_vector(4 downto 0);
-	signal Reg_write_sig,Dmem_write_sig,PC_write_sig,en_Hi_sig,en_Low_sig : std_logic;
+	signal Reg_write_sig,Dmem_write_sig,PC_write_sig,en_Hi_sig,en_Low_sig,load_finish : std_logic;
+	signal cnt_load : natural;
 begin
 
-	NotStall<=not(Stall);
 	SEL_sig <= X"1" when(opcode = beq) else
 	 						X"2" when(opcode = bne) else
 	 						X"3" when(opcode = blez) else
@@ -216,7 +217,7 @@ begin
 
 Reg_write  <= (not(Stall)) and Reg_write_sig;
 Dmem_write <= (not(Stall)) and Dmem_write_sig;
-PC_write   <= NotStall and PC_write_sig;
+PC_write   <= (not(Stall)) and PC_write_sig;
 en_Hi      <= (not(Stall)) and en_Hi_sig;
 en_Low     <= (not(Stall)) and en_Low_sig;
 					 
@@ -224,16 +225,56 @@ en_Low     <= (not(Stall)) and en_Low_sig;
 	fsm : process(rst,clk)
 	begin
 			if(rst = '1')then
-				current_state <= Instr_fetch;
+				current_state <= Load_state;
+				load_finish <='0';
+				cnt_load <= 0;
+				load <='0';
 			elsif(rising_edge(clk))then
 				current_state <= next_state;
+				
+				if current_state = load_state then
+					if flag_dload = '0' then
+						if cnt_load < 31 then
+							cnt_load <= cnt_load +1;
+							load <='1';
+						else
+							load_finish <= '1';
+							load <='0';
+						end if;
+					else
+						if cnt_load < 87 then
+							cnt_load <= cnt_load +1;
+						else
+							load_finish <= '1';
+						end if;
+					end if;
+				end if;
+				
 			end if;
 		end process;		
 -----------------------------------
-	process(current_state,opcode,func,rt,RegImm_sig)
+	process(current_state,opcode,func,rt,RegImm_sig, load_finish)
 		begin
 		case current_state is
+						when Load_state =>
+							if load_finish ='0' then
+								--load <='1';
+								next_state<= load_state;
+							else
+								--load <='0';
+								next_state<= Instr_fetch;
+							end if;
+							
+							
+							
+							
+							
+							
+							
+							
+					
 						when Instr_fetch =>
+							--load <='0';
 							Reg_write_sig <= '0';
 							Dmem_write_sig <= '0';
 							PC_write_sig <= '0';
@@ -352,6 +393,7 @@ en_Low     <= (not(Stall)) and en_Low_sig;
 							PC_write_sig <= '0';
 							en_Hi_sig  <= '0';
 							en_Low_sig <= '0';
+							--load <= '0';
 
 							next_state <=Instr_fetch;
 		end case;			
