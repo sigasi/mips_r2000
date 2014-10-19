@@ -3,6 +3,10 @@
   <Mappings Location="Common Libraries/IEEE" Library="ieee"/>
   <Mappings Location="Common Libraries/IEEE Synopsys" Library="ieee"/>
   <Mappings Location="Common Libraries" Library="not mapped"/>
+  <Mappings Location="rtl/BRAMs/test_programs/multiplication_array_4x4" Library="not mapped"/>
+  <Mappings Location="rtl/BRAMs/test_programs/sw_verification" Library="not mapped"/>
+  <Mappings Location="rtl/old_mips" Library="not mapped"/>
   <Mappings Location="Common Libraries/STD" Library="std"/>
+  <Mappings Location="Common Libraries/unisim" Library="unisim"/>
   <Mappings Location="" Library="work"/>
 </com.sigasi.hdt.shared.librarymapping.model:LibraryMappings>
